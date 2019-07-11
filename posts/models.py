@@ -27,6 +27,7 @@ class Post(TimeStampedModel):
     category = models.PositiveSmallIntegerField(_('카테고리'), choices=POST_CATEGORY_CHOICES)
     view_count = models.IntegerField(_('조회수'), default=0)
     image = models.ImageField(_('대표이미지'), null=True, upload_to="image/", blank=True)
+    likes = models.ManyToManyField(User, verbose_name=_('좋아요'), related_name="liked_users")
     
     def __str__(self):
         return self.title
@@ -35,7 +36,7 @@ class Post(TimeStampedModel):
 class CardImage(TimeStampedModel):
 
     class Meta:
-        verbose_name = '공지사항'
+        verbose_name = '게시글 이미지'
         verbose_name_plural = "게시글 이미지"
 
     post = models.ForeignKey(Post, verbose_name=_('게시글'), on_delete=models.CASCADE)
@@ -48,6 +49,7 @@ class CardImage(TimeStampedModel):
 class Comment(TimeStampedModel):
 
     class Meta:
+        verbose_name = '댓글'
         verbose_name_plural = "댓글"
 
     user = models.ForeignKey(User, verbose_name=_('작성자'), on_delete=models.CASCADE)
