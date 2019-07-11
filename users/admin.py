@@ -1,6 +1,25 @@
 from django.contrib import admin
 from .models import User
 
-admin.site.register(User)
+@admin.register(User)
+class UserAdmin(admin.ModelAdmin):
+    list_diaply_links = (
+        'username',
+    )
 
-# Register your models here.
+    search_fields = (
+        'username',
+        'email',
+    )
+    
+    list_filter = (
+    )
+
+    list_display = (
+        'username',
+        'email',
+        'image',
+        'is_superuser',
+        'created_at',
+        'updated_at',
+    )
