@@ -18,6 +18,8 @@ DJANGO_APPS = [
 THIRD_PARTY_APPS = [
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
+    'crispy_forms',
 ]
 
 DEFAULT_APPS = [
