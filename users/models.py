@@ -6,7 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 
 class User(AbstractUser, TimeStampedModel):
-    image = ImageField(_("프로필사진"), upload_to="image/")
+    image = ImageField(_("프로필사진"), upload_to="image/", null=True, blank=True)
     followings = ManyToManyField("self", related_name='followers', symmetrical=False)
 
     class Meta:
