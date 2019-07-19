@@ -16,7 +16,7 @@ class Post(TimeStampedModel):
     ]
     POST_CATEGORY_CHOICES = [
         (0, "basic"),
-        (1, "emergency"),
+        (1, "sex"),
         (2, "news")
     ]
     
@@ -41,6 +41,7 @@ class CardImage(TimeStampedModel):
 
     post = models.ForeignKey(Post, verbose_name=_('게시글'), on_delete=models.CASCADE)
     image = models.ImageField(_('이미지'), upload_to="image/")
+    position = models.PositiveIntegerField(_('순서'), null=True, blank=True)
     
     def __str__(self):
         return "{} : {}의 이미지".format(self.pk, self.post.title)
