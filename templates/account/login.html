@@ -1,4 +1,3 @@
-{% extends "account/base.html" %}
 
 {% load static %}
 {% load i18n %}
@@ -17,7 +16,7 @@
 
 {% block inner %}
 
-<h1 class="margin-top-40">{% trans "Sign In" %}</h1>
+
 
 {% get_providers as socialaccount_providers %}
 
@@ -39,30 +38,37 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 {% include "socialaccount/snippets/login_extra.html" %}
 
 {% else %}
-<p>{% blocktrans %}If you have not created an account yet, then please
-<a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-{% endif %}
 
+{% endif %}
+<br><br><br><br>
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
 
   <label for="id_login" class="control-label requiredField">
-    아이디<span class="asteriskField">*</span>
+  
   </label><br>
   <input type="text" name="login" placeholder="아이디" autofocus="autofocus" maxlength="150" class="textinput textInput" id="id_login" required><br>
 
-  <label for="id_password" class="control-label requiredField">
-    비밀번호<span class="asteriskField">*</span>
+  <label for="id_password" class="control-label requiredField"></label>
   </label><br>
   <input type="password" name="password" placeholder="비밀번호" class="textinput textInput" id="id_passoword" required><br>
 
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
   <br><br>
+  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+  <p>{% blocktrans %}If you have not created an account yet, then please
+      <br><br>
+    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
+  <br><br>
+  <div class="login">
+    
   <button class="primaryAction btn btn-primary" type="submit">{% trans "Sign In" %}</button>
 </form>
 
+
+
 {% endblock %}
+
 
