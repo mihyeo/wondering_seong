@@ -44,8 +44,9 @@ class CardImageAdmin(admin.ModelAdmin):
     )
 
     list_display = (
-        'image',
         'post',
+        'position',
+        'image',
         'created_at',
         'updated_at',
     )
