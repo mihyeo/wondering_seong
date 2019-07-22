@@ -1,6 +1,6 @@
 <div class = "card_container">
     {% for post in posts %}
-    <a href="#" class = "card_news">
+    <a href="{% url 'show' post.pk %}" class = "card_news">
         {% if post.image %}
             <img src="{{ post.image.url }}" class="img" alt="" width="150">
         {% endif %}150"
