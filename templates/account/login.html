@@ -1,11 +1,9 @@
+{% extends "account/base copy.html" %}
 
 {% load static %}
 {% load i18n %}
 {% load account socialaccount %}
 {% load crispy_forms_tags %}
-
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
-
 
 {% block css %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -16,7 +14,7 @@
 
 {% block inner %}
 
-
+<br>
 
 {% get_providers as socialaccount_providers %}
 
@@ -24,6 +22,7 @@
 <p>{% blocktrans with site.name as site_name %}Please sign in with one
 of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
 for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
 
 <div class="socialaccount_ballot">
 
@@ -40,35 +39,34 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 {% else %}
 
 {% endif %}
-<br><br><br><br>
+
+<img src="{% static 'image/logo.png' %}" width="150px" height="150px" style="margin-left: auto; margin-right: auto; display: block;">
+<h2 style="text-align:center;">궁금했性</h2>
 <form class="login" method="POST" action="{% url 'account_login' %}">
   {% csrf_token %}
-
-  <label for="id_login" class="control-label requiredField">
   
-  </label><br>
+  <label for="id_login" class="control-label requiredField">
+      
+  </label>
   <input type="text" name="login" placeholder="아이디" autofocus="autofocus" maxlength="150" class="textinput textInput" id="id_login" required><br>
-
-  <label for="id_password" class="control-label requiredField"></label>
-  </label><br>
+  
+  <label for="id_password" class="control-label requiredField">
+   
+  </label>
   <input type="password" name="password" placeholder="비밀번호" class="textinput textInput" id="id_passoword" required><br>
 
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}
+  <br>
+  
+  <a href="{{ signup_url }}">회원가입</a> 
+  
   <br><br>
-  <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-  <p>{% blocktrans %}If you have not created an account yet, then please
-      <br><br>
-    <a href="{{ signup_url }}">sign up</a> first.{% endblocktrans %}</p>
-  <br><br>
-  <div class="login">
-    
-  <button class="primaryAction btn btn-primary" type="submit">{% trans "Sign In" %}</button>
+
+  <div class="col three">			
+  <button class="button3" type="submit">{% trans "Sign In" %}</button>
+  </div>
 </form>
 
-
-
 {% endblock %}
-
-
