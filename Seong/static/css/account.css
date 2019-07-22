@@ -1,0 +1,76 @@
+.header{
+    border : 3px solid gray;
+    display : grid;
+    grid-template-columns : 20px 1fr 20px; 
+}
+.back{
+    padding : 5px;
+}
+.login{
+    padding : 5px;
+    text-align : center;
+}
+.help{
+    padding : 5px;
+}
+.logo_img{
+    display : table;
+    text-align: ceter;
+    margin-left : auto;
+    margin-right : auto;
+    width : 30%;
+    border:3px solid orangered;
+    text-align : center;
+    padding : 50px 0px;
+    margin-top:50px;
+    margin-bottom:50px;
+}
+
+.input{
+    display : grid;
+    grid-gap : 1rem;
+}
+.email{
+    margin-left : 10%;
+    margin-right : 10%;
+    border-bottom:3px solid rgb(177, 21, 81);
+}
+.password{
+    margin-left : 10%;
+    margin-right : 10%;
+    border-bottom:3px solid rgb(177, 21, 81);
+}
+.find{
+    display : flex;
+    text-align: ceter;
+    justify-content: space-around;
+}
+.f_id{
+    
+    border : 3px solid gray;
+    text-align:center;
+    padding : 10px;
+   
+}
+.f_password{
+    
+    border : 3px solid gray;
+    text-align:center;
+    padding : 10px;
+    
+}
+
+.signup{
+    border : 3px solid gray;
+    text-align:center;
+    display : table;
+    padding : 10px;
+    margin-left : auto;
+    margin-right : auto;
+    width : 30%;
+}
+.login_bar{
+    background-color:  rgb(177, 21, 81); 
+    padding:10px;
+    text-align: center;
+}

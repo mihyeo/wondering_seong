@@ -1,0 +1,11 @@
+<div class = "card_container">
+    {% for post in posts %}
+    <a href="#" class = "card_news">
+        {% if post.image %}
+            <img src="{{ post.image.url }}" class="img" alt="" width="150">
+        {% endif %}150"
+        <p>{{ post.title }}</p>
+        <p>{{ post.content }}</p>
+    </a>
+    {% endfor %}
+</div>

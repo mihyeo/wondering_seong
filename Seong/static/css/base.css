@@ -1,0 +1,54 @@
+#header {
+    text-align: left;
+    margin:0;
+    padding:10px;
+    display:grid;
+    grid-template-columns: 2fr 4fr 1fr 1fr;
+    border:5px solid black;
+}
+.logo{
+    border:5px solid black;
+}
+.search{
+    border:5px solid black;
+}
+.var_icon{
+    border:5px solid black;
+}
+.mypage_icon{
+    border:5px solid black;
+}
+#banner{
+    height:70px;
+    
+    border:5px solid red;
+    padding:20px;
+}
+#nav{
+    margin-top:10px;
+    border: 5px solid blue;
+    padding : 10px;
+    display : grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+#intro{
+    text-align: center;
+    padding : 3px;
+    margin-top:10px;
+}
+.card_container{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    text-align:center;
+}
+.img{
+    border: 2px solid rgb(199, 90, 108);
+    margin: 10px;
+    
+    align-self:center;
+    padding:50px 50px;
+}
+.card_news{
+    align-self:center;
+}

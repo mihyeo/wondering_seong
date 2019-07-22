@@ -24,6 +24,7 @@ class PostAdmin(admin.ModelAdmin):
 
     list_display = (
         'title',
+        'image',
         'kinds',
         'category',
         'user',

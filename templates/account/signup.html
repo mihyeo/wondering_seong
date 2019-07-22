@@ -12,7 +12,28 @@
 
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
   {% csrf_token %}
-  {{ form|crispy }}
+
+  <label for="id_username" class="control-label requiredField">
+    아이디<span class="asteriskField">*</span>
+  </label><br>
+  <input type="text" name="username" placeholder="아이디" autofocus="autofocus" maxlength="150" class="textinput textInput" id="id_username" required><br><br>
+
+  <label for="id_email" class="control-label">
+    이메일<span class="asteriskField"> (선택사항)</span>
+  </label><br>
+  <input type="email" name="email" placeholder="아이디" autofocus="autofocus" maxlength="150" class="textinput textInput" id="id_email"><br><br>
+
+  <label for="id_password1" class="control-label requiredField">
+    비밀번호<span class="asteriskField">*</span>
+  </label><br>
+  <input type="password" name="password1" placeholder="비밀번호" class="textinput textInput" id="id_password1" required><br><br>
+
+  <label for="id_password2" class="control-label requiredField">
+    비밀번호 (확인)<span class="asteriskField">*</span>
+  </label><br>
+  <input type="password" name="password2" placeholder="비밀번호 (확인)" class="textinput textInput" id="id_password2" required><br><br>
+
+  
   {% if redirect_field_value %}
   <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
   {% endif %}

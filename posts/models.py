@@ -27,7 +27,7 @@ class Post(TimeStampedModel):
     category = models.PositiveSmallIntegerField(_('카테고리'), choices=POST_CATEGORY_CHOICES)
     view_count = models.IntegerField(_('조회수'), default=0)
     image = models.ImageField(_('대표이미지'), null=True, upload_to="image/", blank=True)
-    likes = models.ManyToManyField(User, verbose_name=_('좋아요'), related_name="liked_users")
+    likes = models.ManyToManyField(User, verbose_name=_('좋아요'), related_name="liked_users", null=True)
     
     def __str__(self):
         return self.title
