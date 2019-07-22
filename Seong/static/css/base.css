@@ -84,3 +84,14 @@
     align-self:center;
 
 }
+
+.newscard_container{
+    border: 1px solid #beb6b8;
+    margin:2%;
+    display:grid;
+    
+    /*grid-template-columns: repeat(2,1fr);*/
+    text-align: center;
+    /*max-width: width 100%;
+    height:auto !important;*/
+}
