@@ -37,18 +37,37 @@
     padding : 3px;
     margin-top:10px;
 }
+
+.bigcard_container{
+
+    border: 1px solid #beb6b8;
+    margin: 5px;
+    /*display:grid;*/
+    /*grid-template-columns: 1fr 1fr;*/
+    float:left;
+    
+}
 .card_container{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
     text-align:center;
 }
+
+.title{
+    font-size : 15px;
+    font color: red;
+}
+
+.content{
+
+}
+
 .img{
-    border: 2px solid rgb(199, 90, 108);
-    margin: 10px;
+    border: 1px solid #beb6b8;
+    margin: 5px;
     
     align-self:center;
-    padding:50px 50px;
+    padding: 0px;
 }
 .card_news{
     align-self:center;
+
 }

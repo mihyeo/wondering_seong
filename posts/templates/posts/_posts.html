@@ -1,11 +1,15 @@
+
 <div class = "card_container">
-    {% for post in posts %}
-    <a href="#" class = "card_news">
-        {% if post.image %}
-            <img src="{{ post.image.url }}" class="img" alt="" width="150">
-        {% endif %}150"
-        <p>{{ post.title }}</p>
-        <p>{{ post.content }}</p>
-    </a>
-    {% endfor %}
+        {% for post in posts %}
+        <a href="#" class = "card_news">
+            <div class = "bigcard_container">
+            {% if post.image %}
+                <img src="{{ post.image.url }}" class="img" alt="" width="150">
+            {% endif %}
+            <p class = "title">{{ post.title }}</p>
+            <p class = "content">{{ post.content }}</p>
+        </a>
+        </div>
+        {% endfor %}
+    
 </div>
