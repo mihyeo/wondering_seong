@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import User
 from .forms import UserChangeForm
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required, permission_required
 
 
 def profile(request, id):
@@ -14,6 +15,7 @@ def profile(request, id):
 
 
 @login_required()
+# @permission_required('request.user.pk')
 def update(request, id):
     user = get_object_or_404(User, pk = id)
     context = {
