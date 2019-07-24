@@ -31,6 +31,10 @@ class Post(TimeStampedModel):
     
     def __str__(self):
         return self.title
+
+    @property	
+    def card_images(self):	
+        return CardImage.objects.filter(post=self).order_by('position')
     
 
 class CardImage(TimeStampedModel):
