@@ -1,0 +1,18 @@
+<a href="{% url 'like:main' %}">뒤로 가기</a>
+
+<div>제목</div>
+<div>{{post.title}}</div>
+<div>날짜</div>
+<div>{{post.pub_date}}</div>
+<div>내용</div>
+<div>{{post.content}}</div>
+
+<div>좋아요 수 : {{post.like_count}}</div>
+
+<a href="{% url 'like:post_like_toggle' post.id %}">
+    {% if post in user.profile.like_posts.all %}
+        취소
+    {% else %}
+        좋아요
+    {% endif %}
+</a>

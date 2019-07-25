@@ -29,6 +29,8 @@ def news(request):
 
 def show(request, id):
     post = get_object_or_404(Post, pk=id)
+    post.view_count = post.view_count + 1
+    post.save()
     return render(request,'posts/show.html', {'post':post})
 
 
@@ -41,6 +43,19 @@ def create(request):
         product = Product(image=image,title=title,content=content)
         product.save()
         return render(request,'posts/basic.html')
-
+    
+    
+def like_toggle(request, post_id):
+    post = get_object_or_404(Post, pk=post_id)
+    user = request.user
+    if user.is_anonymous:
+        return redirect('account_login')
+    
+    if user in post.likes.all():
+        post.likes.remove(user)
+    else:
+        post.likes.add(user)
+        
+    return redirect('show', post_id)
     
     

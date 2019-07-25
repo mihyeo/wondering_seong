@@ -95,3 +95,12 @@
     /*max-width: width 100%;
     height:auto !important;*/
 }
+
+.post-icon {
+    font-size: 25px;
+    color: black;
+}
+
+.post-icon:hover {
+    color: red;
+}
