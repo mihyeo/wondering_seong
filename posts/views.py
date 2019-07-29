@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Post
+from django.db.models import Count
 import pdb
 
 
@@ -31,7 +32,12 @@ def show(request, id):
     post = get_object_or_404(Post, pk=id)
     post.view_count = post.view_count + 1
     post.save()
-    return render(request,'posts/show.html', {'post':post})
+    likes_count = post.likes.count()
+    context = {
+        'post':post,
+        'likes_count': likes_count
+    }
+    return render(request,'posts/show.html', context)
 
 
 
