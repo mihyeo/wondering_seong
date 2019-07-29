@@ -1,17 +1,26 @@
-<div id= "header">
+{% load staticfiles %}
+<!--<div id= "header">
     <span class="logo">궁금했성</span>
     <span class="search">search</span>
     <span class="var_icon">ㅁ</span>
     <span class="mypage_icon">ㅁ</span>
+</div>-->
+
+<div id = "header">
+    <button id = "logo"><img src="/static/image/logo.png" width="100" height="100"></button>
+    <input id = "search" type="text" placeholder="검색어 입력">
+    <button id ="search_icon"><img src="/static/image/search_icon.png" width="100" height="100"></button>
+    <button id = "var_icon"><img src="/static/image/var_icon.png" width="100" height="100"></button>
+    <button id = "user_icon"><img src="/static/image/user_icon.png" width="100" height="100"></button>
 </div>
 
-<div id="banner">
+<div id ="banner">
     <span>이제는 어렵게 찾지 마세요. 성숙한 성생활을 위한 정보가 모여있는 궁금했성</span>
 </div>
 
-<div id="intro">궁금한 정보 여기 다 있姓</div>
+<!--<div id ="intro">궁금한 정보 여기 다 있姓</div>
 
-<div id="nav">
+<div id ="nav">
     <a href="{% url 'basic' %}">성 기본
         <br> 지식</a>
     <a href="{% url 'sex' %}">상황별
@@ -20,4 +29,17 @@
         <br> 정보</a>
     <a href="{% url 'news' %}">성범죄
         <br> 뉴스</a>
+</div>-->
+
+
+<div id="intro">궁금한 정보 여기 다 있姓</div>
+<div id ="nav">
+    <div id = "one"><a href="{% url 'basic' %}">
+        <img src="/static/image/na.jpg" width="100" height="100"></a></div>
+    <div id = "two"><a href="{% url 'sex' %}">
+        <img src="/static/image/na.jpg" width="100" height="100"></a></div>
+    <div id = "three"><a href="#">
+        <img src="/static/image/na.jpg" width="100" height="100"></a></a></div>
+    <div id = "four"><a href="{% url 'news' %}">
+        <img src="/static/image/na.jpg" width="100" height="100"></a></div>
 </div>
