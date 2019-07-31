@@ -1,7 +1,48 @@
-
 input:-ms-imput-placeholder {color:#a8a8a8;}
 input::-webkit-input-placeholder {color:#a8a8a8;}
 input::-moz-placeholder {color:#a8a8a8;} 
+
+.bigcard_container{
+    border: 1px solid #beb6b8;
+    margin:2%;
+    display:float;
+    width:46%;
+    height:46%;
+    float:left;
+    text-align: center;
+}
+
+.title {
+    margin:2%;
+    font-size : 15px;
+    color: black;
+    font-weight:bold;
+}
+
+.content{
+    margin:2%;
+    font-size : 13px;
+    color: darkgrey;
+    font-weight:lighter;
+}
+
+.img {
+    border: 1px solid #beb6b8;
+    margin: 5px;
+    align-self:center;
+    padding: 0px;
+}
+
+.card_news {
+    align-self:center;
+}
+
+.newscard_container{
+    border: 1px solid #beb6b8;
+    margin:2%;
+    display:grid;
+    text-align: center;
+}
 
 #header {
     text-align: left;
