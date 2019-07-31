@@ -1,97 +1,172 @@
+
+input:-ms-imput-placeholder {color:#a8a8a8;}
+input::-webkit-input-placeholder {color:#a8a8a8;}
+input::-moz-placeholder {color:#a8a8a8;} 
+
 #header {
     text-align: left;
     margin:0;
-    padding:10px;
+    padding:30px;
     display:grid;
-    grid-template-columns: 2fr 4fr 1fr 1fr;
-    border:5px solid black;
+    grid-template-columns: 1fr 4fr 1fr 1fr 1fr;
+    border:0;
+    background-color:rgb(136,31,90);
+    
 }
-.logo{
-    border:5px solid black;
+#logo{
+    border: 3px solid rgb(136,31,90);
+    background-color:rgb(41, 32, 37);
+    display: block; 
+    margin: 0px auto; 
 }
-.search{
-    border:5px solid black;
+#search{
+    background-color:white;
+    
+    
 }
-.var_icon{
-    border:5px solid black;
+
+#search_icon{
+    background-color:white;
+    
+    
 }
-.mypage_icon{
-    border:5px solid black;
+
+#var_icon{
+    border: 3px solid rgb(136,31,90);
+    background-color:rgb(136,31,90);
+    display: block; 
+    margin: 0px auto;
+    
 }
+#mypage_icon{
+    border: 3px solid rgb(136,31,90);
+    background-color:rgb(136,31,90);
+    display: block; 
+    margin: 0px auto;
+    
+}
+input{
+    font-size :1rem;
+    padding:10px;
+    border:0px;
+    outline: none;
+    float:left;
+    background-color:white;
+    
+}
+
+button{
+    border:1px;
+    background-color:rgb(136,31,90);
+    
+}
+
 #banner{
     height:70px;
     
     border:5px solid red;
     padding:20px;
 }
-#nav{
-    margin-top:10px;
-    border: 5px solid blue;
-    padding : 10px;
-    display : grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+
+
+@import url(https://fonts.googleapis.com/css?family=Varela+Round);
+
+html, body { background: #333 url("https://codepen.io/images/classy_fabric.png"); }
+
+.slides {
+    padding: 0;
+    width: 100%;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slides input { display: none; }
+
+.slide-container { display: block; }
+
+.slide {
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 30px;
+    display: block;
+    position: absolute;
+    transform: scale(0);
+    transition: all .7s ease-in-out;
+}
+
+.slide img {
+    width: 100%;
+    max-height: 200px;
+}
+
+.nav label {
+    width: 200px;
+    height: 100%;
+    display: none;
+    position: absolute;
+
+	opacity: 0;
+    z-index: 9;
+    cursor: pointer;
+
+    transition: opacity .2s;
+
+    color: #FFF;
+    font-size: 156pt;
     text-align: center;
-}
-#intro{
-    text-align: center;
-    padding : 3px;
-    margin-top: 5px;
-}
-
-
-.bigcard_container{
-
-    border: 1px solid #beb6b8;
-    margin:2%;
-    display:float;
-    width:46%;
-    height:46%;
-    float:left;
-    /*grid-template-columns: repeat(2,1fr);*/
-    text-align: center;
-    /*max-width: width 100%;
-    height:auto !important;*/
-
-    
+    line-height: 380px;
+    font-family: "Varela Round", sans-serif;
+    background-color: rgba(255, 255, 255, .3);
+    text-shadow: 0px 0px 15px rgb(119, 119, 119);
 }
 
-.card_container{
-    border: 1px solid #beb6b8;
+.slide:hover + .nav label { opacity: 0.5; }
+
+.nav label:hover { opacity: 1; }
+
+.nav .next { right: 0; }
+
+input:checked + .slide-container  .slide {
+    opacity: 1;
+
+    transform: scale(1);
+
+    transition: opacity 1s ease-in-out;
 }
 
-.title{
-    margin:2%;
-    font-size : 15px;
-    color: black;
-    font-weight:bold;
+input:checked + .slide-container .nav label { display: block; }
+
+.nav-dots {
+	width: 100%;
+	bottom: 11px;
+	height: 40%;
+	display: block;
+	position: absolute;
+	text-align: center;
 }
 
-.content{
-    margin:2%;
-    font-size : 13px;
-    color: darkgrey;
-    font-weight:lighter;
+.nav-dots .nav-dot {
+	top: 150px;
+	width: 15px;
+	height: 15px;
+	margin: 0 4px;
+	position: relative;
+	border-radius: 100%;
+	display: inline-block;
+	background-color: rgba(0, 0, 0, 0.6);
 }
 
-.img{
-    border: 1px solid #beb6b8;
-    margin: 5px;
-    
-    align-self:center;
-    padding: 0px;
-}
-.card_news{
-    align-self:center;
-
+.nav-dots .nav-dot:hover {
+	cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.8);
 }
 
-.newscard_container{
-    border: 1px solid #beb6b8;
-    margin:2%;
-    display:grid;
-    
-    /*grid-template-columns: repeat(2,1fr);*/
-    text-align: center;
-    /*max-width: width 100%;
-    height:auto !important;*/
+input#img-1:checked ~ .nav-dots label#img-dot-1,
+input#img-2:checked ~ .nav-dots label#img-dot-2,
+input#img-3:checked ~ .nav-dots label#img-dot-3,
+input#img-4:checked ~ .nav-dots label#img-dot-4, {
+	background: rgba(0, 0, 0, 0.8);
 }

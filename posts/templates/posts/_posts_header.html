@@ -1,23 +1,82 @@
-<div id= "header">
+{% load staticfiles %}
+<!--<div id= "header">
     <span class="logo">궁금했성</span>
     <span class="search">search</span>
     <span class="var_icon">ㅁ</span>
     <span class="mypage_icon">ㅁ</span>
-</div>
+</div>-->
+<head>
+    
+    <ul class="slides">
+        <input type="radio" name="radio-btn" id="img-1" checked />
+            <li class="slide-container">
+                <div class="slide">
+                    <img src="static/image/one.JPG"  alt="메인페이지" width="100%" max-height="300px" />
+                </div>
+            <div class="nav">
+        
+            </div>
+            </li>
+        <input type="radio" name="radio-btn" id="img-2" />
+            <li class="slide-container">
+                <div class="slide">
+                <img src="static/image/two.JPG" alt="메인페이지"  />
+                </div>
+                <div class="nav">
+    
+                </div>
+            </li>
+        <input type="radio" name="radio-btn" id="img-3" />
+            <li class="slide-container">
+                <div class="slide">
+                <img src="static/image/three.JPG" alt="메인페이지" />
+                </div>
+                <div class="nav">
+                </div>
+            </li>
+        <input type="radio" name="radio-btn" id="img-4" />
+            <li class="slide-container">
+                <div class="slide">
+                <img src="static/image/four.JPG" alt="메인페이지" />
+                </div>
+                <div class="nav">
+    
+                </div>
+            </li>
+        <li class="nav-dots">
+            <label for="img-1" class="nav-dot" id="img-dot-1"></label>
+            <label for="img-2" class="nav-dot" id="img-dot-2"></label>
+            <label for="img-3" class="nav-dot" id="img-dot-3"></label>
+            <label for="img-4" class="nav-dot" id="img-dot-4"></label>
+        </li>
+    </ul>
 
-<div id="banner">
-    <span>이제는 어렵게 찾지 마세요. 성숙한 성생활을 위한 정보가 모여있는 궁금했성</span>
-</div>
+    <!--<div id ="intro">궁금한 정보 여기 다 있姓</div>
 
-<div id="intro">궁금한 정보 여기 다 있姓</div>
+    <div id ="nav">
+        <a href="{% url 'basic' %}">성 기본
+            <br> 지식</a>
+        <a href="{% url 'sex' %}">상황별
+            <br> 대처법</a>
+        <a href="#">여성용품
+            <br> 정보</a>
+        <a href="{% url 'news' %}">성범죄
+            <br> 뉴스</a>
+    </div>-->
 
-<div id="nav">
-    <a href="{% url 'basic' %}">성 기본
-        <br> 지식</a>
-    <a href="{% url 'sex' %}">상황별
-        <br> 대처법</a>
-    <a href="#">여성용품
-        <br> 정보</a>
-    <a href="{% url 'news' %}">성범죄
-        <br> 뉴스</a>
-</div>
+    <div id ="nav">
+        
+        <div class = "fake"></div>
+        <div id ="intro1">            궁금한 정보 </div>
+        <div id = "intro2">여기 다 있姓           </div>
+        <div class = "fake"></div>
+        <div id = "one"><a href="{% url 'basic' %}">
+            <img src=""></a></div>
+        <div id = "one"><a href="{% url 'sex' %}">
+            <img src=""></a></div>
+        <div id = "one"><a href="#">
+            <img src=""></a></a></div>
+        <div id = "one"><a href="{% url 'news' %}">
+            <img src=""></a></div>
+    </div>
+</head>
