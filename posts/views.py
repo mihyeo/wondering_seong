@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Post
+from .models import Post, Comment
 from django.db.models import Count
 import pdb
 
@@ -34,7 +34,7 @@ def show(request, id):
     post.save()
     likes_count = post.likes.count()
     context = {
-        'post':post,
+        'post': post,
         'likes_count': likes_count
     }
     return render(request,'posts/show.html', context)
@@ -64,5 +64,21 @@ def like_toggle(request, post_id):
 
     return redirect('show', post_id)
 
+
+def create_comment(request, post_id):
+    if request.method == "POST":
+        user = request.user
+        if user.is_anonymous:
+            return redirect('account_login')
+        post = get_object_or_404(Post, pk=post_id)
+        body = request.POST.get('body')
+        Comment.objects.create(user=user, post=post, body=body)
+        return redirect('show', post_id)
+
+
+def delete_comment(request, post_id, comment_id):
+    comment = get_object_or_404(Comment, pk=comment_id)
+    comment.delete()
+    return redirect('show', post_id)
     
     

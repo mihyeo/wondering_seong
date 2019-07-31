@@ -23,6 +23,7 @@ class PostAdmin(admin.ModelAdmin):
     )
 
     list_display = (
+        'pk',
         'title',
         'image',
         'kinds',

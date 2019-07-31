@@ -4,12 +4,9 @@
 {% block css %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="{% static 'css/project.css' %}" rel="stylesheet">
-<link rel="stylesheet" href="{% static 'css/base.css' %}">
 {% endblock css %}
 
 {% block content %}
-<h1> 게시글 상세보기 페이지 입니다.</h1>
-<h2>{{post.title}}</h2>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -17,12 +14,10 @@
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
-  
-    
     
 {% if post.kinds == 1 %}
     {% if post.image %}    
-    <img src="{{ post.image.url }}" class="d-block w-100" alt="...">
+      <img src="{{ post.image.url }}" class="d-block w-100" alt="...">
     {% endif %}
 {% elif post.kinds == 0 %}
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -51,7 +46,13 @@
     </div>
 {% endif %}
 
-<h2>{{post.user}}</h2>
+<h2>{{ post.title }}</h2>
+<p>조회수 : {{post.view_count}}</p>
+<a href="#">
+  <img src="{% static 'image/logo.png' %}" width="40" height="40" alt="...">
+  {{ post.user }}
+</a>
+<br>
 
 <a href="{% url 'like_toggle' post.pk %}">
   {% if request.user in post.likes.all %}
@@ -63,7 +64,29 @@
 
 <span id="likes_count">{{ likes_count }}</span>
 
-<h2>조회수 : {{post.view_count}}</h2>
+<form action="{% url 'create_comment' post.pk %}" method="POST" style="margin-top: 50px;">
+    {% csrf_token %}
+    <div class="form-group">
+        <textarea class="form-control" name="body" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="댓글 달기..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary right">작성</button>
+</form><br>
+
+{% if post.comments %}
+<ul class="list-group" style="margin-top: 40px;">
+    {% for comment in post.comments %}
+    <li class="list-group-item">
+        <p>
+            <b>{{ comment.user.username }}</b>
+            {% if user == comment.user %}
+                <a href="{% url 'delete_comment' post.pk comment.pk %}" class="right">삭제</a>
+            {% endif %}
+        </p>
+        <p>{{ comment.body }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}
 
 {% endblock content %}
     
