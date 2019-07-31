@@ -1,12 +1,18 @@
 {% load staticfiles %}
-<!--<div id= "header">
-    <span class="logo">궁금했성</span>
-    <span class="search">search</span>
-    <span class="var_icon">ㅁ</span>
-    <span class="mypage_icon">ㅁ</span>
-</div>-->
-<head>
-    
+
+<div id = "header">
+    <div id = "logo"><a href="#"><img src="/static/image/logo.png" width="45" height="45"></a></div>
+
+        <div class="search">
+            <input type="text" class="searchTerm" placeholder="검색어를 입력해주세요.">
+            <button type="submit" class="searchButton">
+                <img src = "/static/image/search_icon.png" width="30" height="30">
+            </button>
+        </div>
+    <div id = "mypage_icon"><a href="#"><img src="/static/image/user_icon.png" width="50" height="50"></a></div>
+</div>
+
+<div id="slides">
     <ul class="slides">
         <input type="radio" name="radio-btn" id="img-1" checked />
             <li class="slide-container">
@@ -50,18 +56,16 @@
             <label for="img-4" class="nav-dot" id="img-dot-4"></label>
         </li>
     </ul>
+</div>
 
-    <div id ="intro">궁금한 정보 여기 다 있姓</div>
 
-    <div id ="nav">
-        <a href="{% url 'basic' %}">성 기본
-            <br> 지식</a>
-        <a href="{% url 'sex' %}">상황별
-            <br> 대처법</a>
-        <a href="#">여성용품
-            <br> 정보</a>
-        <a href="{% url 'news' %}">성범죄
-            <br> 뉴스</a>
-    </div>
-
-</head>
+<div id="nav">
+    <div id = "one"><a href="{% url 'basic' %}">
+        <img src="/static/image/na.jpg" width="100%" height="100%"></a></div>
+    <div id = "two"><a href="{% url 'sex' %}">
+        <img src="/static/image/na.jpg" width="100%" height="100%"></a></div>
+    <div id = "three"><a href="#">
+        <img src="/static/image/na.jpg" width="100%" height="100%"></a></a></div>
+    <div id = "four"><a href="{% url 'news' %}">
+        <img src="/static/image/na.jpg" width="100%" height="100%"></a></div>
+</div>
