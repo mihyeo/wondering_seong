@@ -1,7 +1,7 @@
 {% load staticfiles %}
 
 <div id = "header">
-    <div id = "logo"><a href="#"><img src="/static/image/logo.png" width="45" height="45"></a></div>
+    <div id = "logo"><a href="#"><img src="/static/image/logo.png" width="45" height="45" id="search-icon-img"></a></div>
 
         <div class="search">
             <input type="text" class="searchTerm" placeholder="검색어를 입력해주세요.">
@@ -9,7 +9,7 @@
                 <img src = "/static/image/search_icon.png" width="30" height="30">
             </button>
         </div>
-    <div id = "mypage_icon"><a href="#"><img src="/static/image/user_icon.png" width="50" height="50"></a></div>
+    <div id = "mypage_icon"><a href="#"><img src="/static/image/user_icon.png" width="50" height="50" id="mypage-icon-img"></a></div>
 </div>
 
 <div id="slides">
@@ -17,36 +17,25 @@
         <input type="radio" name="radio-btn" id="img-1" checked />
             <li class="slide-container">
                 <div class="slide">
-                    <img src="static/image/one.JPG"  alt="메인페이지" width="100%" max-height="300px" />
+                    <img src="{% static 'image/one.JPG' %}"  alt="메인페이지" width="100%" max-height="300px" />
                 </div>
-            <div class="nav">
-        
-            </div>
             </li>
         <input type="radio" name="radio-btn" id="img-2" />
             <li class="slide-container">
                 <div class="slide">
-                <img src="static/image/two.JPG" alt="메인페이지"  />
-                </div>
-                <div class="nav">
-    
+                <img src="{% static 'image/two.JPG' %}" alt="메인페이지"  />
                 </div>
             </li>
         <input type="radio" name="radio-btn" id="img-3" />
             <li class="slide-container">
                 <div class="slide">
-                <img src="static/image/three.JPG" alt="메인페이지" />
-                </div>
-                <div class="nav">
+                <img src="{% static 'image/three.JPG' %}" alt="메인페이지" />
                 </div>
             </li>
         <input type="radio" name="radio-btn" id="img-4" />
             <li class="slide-container">
                 <div class="slide">
-                <img src="static/image/four.JPG" alt="메인페이지" />
-                </div>
-                <div class="nav">
-    
+                <img src="{% static 'image/four.JPG' %}" alt="메인페이지" />
                 </div>
             </li>
         <li class="nav-dots">

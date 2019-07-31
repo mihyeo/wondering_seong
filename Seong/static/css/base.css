@@ -139,20 +139,23 @@ button{
 }
 #logo{
     border: 3px solid rgb(136,31,90);
-    background-color:rgb(41, 32, 37);
     display: block; 
     margin: 0px auto; 
 }
 #search{
     background-color:white;
-    
-    
+}
+
+#search-icon-img {
+    margin-top: 6px;
+}
+
+#mypage-icon-img {
+    margin-top: 4px;
 }
 
 #search_icon{
     background-color:white;
-    
-    
 }
 
 #var_icon{
