@@ -1,3 +1,6 @@
+body {
+    background-color: #f2f2f5
+  }
 
 input:-ms-imput-placeholder {color:#a8a8a8;}
 input::-webkit-input-placeholder {color:#a8a8a8;}
@@ -5,25 +8,22 @@ input::-moz-placeholder {color:#a8a8a8;}
 
 #header {
     text-align: left;
-    margin:0;
-    padding:30px;
+    margin :0;
+    padding:3px;
     display:grid;
-    grid-template-columns: 1fr 4fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 4fr 1fr;
     border:0;
     background-color:rgb(136,31,90);
+    width:auto;
+    height: 70px;
     
 }
 #logo{
-    border: 3px solid rgb(136,31,90);
-    background-color:rgb(41, 32, 37);
+    padding-left:25px;
     display: block; 
-    margin: 0px auto; 
+    margin:10px auto; 
 }
-#search{
-    background-color:white;
-    
-    
-}
+
 
 #search_icon{
     background-color:white;
@@ -42,7 +42,7 @@ input::-moz-placeholder {color:#a8a8a8;}
     border: 3px solid rgb(136,31,90);
     background-color:rgb(136,31,90);
     display: block; 
-    margin: 0px auto;
+    margin: 4px auto;
     
 }
 input{
@@ -63,25 +63,22 @@ button{
 
 #banner{
     height:70px;
-    
+    background-color:#fff;
     border:5px solid red;
     padding:20px;
 }
 
 
-#intro{
-    margin-top:15px;
-    border-top:1px solid #a8a8a8;
-    text-align:center;
-}
 #nav{
     display:flex;
     flex-direction:row;
     justify-content: space-around;
-    
+    margin-top:15px;
+    border-top:1px solid #a8a8a8;
     border-bottom: 1px solid #a8a8a8;
     margin-top:10px;
-
+    background-color:#fff;
+    box-shadow: 1px 1px  #a8a8a8;
 }
 
 
@@ -93,12 +90,9 @@ button{
     width:46%;
     height:46%;
     float:left;
-    /*grid-template-columns: repeat(2,1fr);*/
-    text-align: center;
-    /*max-width: width 100%;
-    height:auto !important;*/
-
-    
+    text-align: left;
+    background-color:#fff;
+    box-shadow: 1px 1px  #a8a8a8;
 }
 
 .card_container{
@@ -110,6 +104,7 @@ button{
     font-size : 15px;
     color: black;
     font-weight:bold;
+    padding-left:10px;
 }
 
 .content{
@@ -117,6 +112,7 @@ button{
     font-size : 13px;
     color: darkgrey;
     font-weight:lighter;
+    padding-left:10px;
 }
 
 .img{
@@ -141,3 +137,40 @@ button{
     /*max-width: width 100%;
     height:auto !important;*/
 }
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+
+
+.search {
+  width: 100%;
+  position: relative;
+  display: flex;
+  margin-top:10px;
+  margin-left:10px;
+}
+
+.searchTerm {
+  width: 80%;
+  border: 2px solid rgb(136,31,90); 
+  border-right: none;
+  padding: 5px;
+  height: 45px;
+  outline: none;
+  color: #9DBFAF;
+}
+
+
+
+.searchButton {
+  width: 70px;
+  height: 45px;
+  border:2px solid  rgb(136,31,90);
+  background:  #fff;
+  text-align: center;
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+
