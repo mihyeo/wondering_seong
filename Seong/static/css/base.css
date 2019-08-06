@@ -147,11 +147,18 @@ button{
 }
 
 #search-icon-img {
-    margin-top: 6px;
+    width: 35px;
+    height: 35px;
+}
+
+#search-icon {
+    width: 25px;
+    height: 25px;
 }
 
 #mypage-icon-img {
-    margin-top: 4px;
+    width: 40px;
+    height: 40px;
 }
 
 #search_icon{
@@ -311,25 +318,20 @@ input#img-4:checked ~ .nav-dots label#img-dot-4, {
 }
 
 .searchTerm {
-  width: 160px;
-  border: 2px solid rgb(136,31,90); 
-  border-right: none;
-  padding: 5px;
-  height: 45px;
-  outline: none;
-  color: #9DBFAF;
+    width: 55%;
+    font-size: 14px;
+    border-right: none;
+    border-radius: 5px 0px 0px 5px;;
+    color: black;
 }
 
-
-
 .searchButton {
-  width: 70px;
-  height: 45px;
-  border:2px solid  rgb(136,31,90);
-  background:  #fff;
-  text-align: center;
-  color: #fff;
-  border-radius: 0 5px 5px 0;
-  cursor: pointer;
-  font-size: 20px;
+    width: 15%;
+    height: 39px;
+    background: #fff;
+    text-align: center;
+    color: #fff;
+    border-radius: 0px 5px 5px 0px;
+    cursor: pointer;
+    font-size: 20px;
 }
