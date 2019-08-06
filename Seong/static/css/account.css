@@ -74,7 +74,7 @@ body {
     width : 30%;
 }
 .login_bar{
-    background-color:  rgb(177, 21, 81); 
+    background-color: rgb(204, 60, 118); 
     padding:10px;
     text-align: center;
 }
@@ -117,15 +117,58 @@ input[type=submit]:hover {
 }
 
 
-.button3 {  background-color: #c0392b;
+.button3 {  background-color: rgb(204,60,118);
             width: 70%;
             height: 40px;
             border-radius: 30px;
-            border: 2px solid #c0392b; 
+            border: 2px solid rgb(204,60,118); 
             font-size: 20px;
             color:white;
+}
+.idid{
+    font-weight:bold;
+    color:rgb(204,41,125);
 }
 
 a:link { color: red; text-decoration: none;}
 a:visited { color: #adabaa; text-decoration: none;}
 a:hover { color: blue; text-decoration: underline;}
+
+.form-horizontal{
+    overflow:hidden;
+    padding-top: 10%;
+    max-width: 100%;
+    height: auto;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.id_image{
+    width: 30%;
+    height: 40px;
+    border: 1px  rgb(204,60,118); 
+}
+.container-profile{
+    margin-top: 8%;
+    margin-right: 10%;
+    margin-left: 10%;
+    text-align: center;
+    padding:10px;
+    position:center;
+}
+
+.row-bottom{
+    margin-top: 8%;
+    width: 100%;
+    height:auto;
+    font-size: 40%;
+    position: center;
+    text-align: center;
+
+}
+
+#main-img{
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+

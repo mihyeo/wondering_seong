@@ -1,29 +1,20 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FE4242;">
-    <a class="navbar-brand white" href="{% url 'basic' %}">궁금했성?</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
-            {% if request.user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="#">{{ request.user }}님 반갑습니다</a>
-                </li>
-                <li>
-                    <a href="{% url 'users:profile' user.pk %}" class="nav-link">마이페이지</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_logout' %}">로그아웃</a>
-                </li>
-            {% else %}
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_login' %}">로그인</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{% url 'account_signup' %}">회원가입</a>
-                </li>
-            {% endif %}
-        </ul>
-    </div>
-</nav>
+
+        
+    {% if request.user.is_authenticated %}
+        <div id = "t_login">
+            <div id = "hi"><a class="nav-link" href="#">{{ request.user }}님 반갑습니다</a></div>
+            <div id = "t_my"><a href="{% url 'users:profile' user.pk %}" class="nav-link">마이페이지</a></div>
+            <div id = "t_out"><a class="nav-link" href="{% url 'account_logout' %}">로그아웃</a></div>
+        </div>
+    {% else %}
+        <div id = "fail_login">
+            <div>       </div>
+            
+            <div><a class="nav-link" href="{% url 'account_login' %}">로그인</a></div>
+            <div><a class="nav-link" href="{% url 'account_signup' %}">회원가입</a></div>
+            
+        </div>
+    {% endif %}
+
+    

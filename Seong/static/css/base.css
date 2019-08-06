@@ -1,7 +1,8 @@
+button {-webkit-appearance:none;}
 body {
-    background-color: #f2f2f5
+    background-color: #f2f2f5;
   }
-
+/*헤더*/
 input:-ms-imput-placeholder {color:#a8a8a8;}
 input::-webkit-input-placeholder {color:#a8a8a8;}
 input::-moz-placeholder {color:#a8a8a8;} 
@@ -11,15 +12,16 @@ input::-moz-placeholder {color:#a8a8a8;}
     margin :0;
     padding:3px;
     display:grid;
-    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
     border:0;
-    background-color:rgb(136,31,90);
+    background-color:rgb(204,41,125);
     width:auto;
     height: 70px;
     
 }
 #logo{
-    padding-left:25px;
+    padding-left:8px;
+    padding-right:5px;
     display: block; 
     margin:10px auto; 
 }
@@ -31,18 +33,14 @@ input::-moz-placeholder {color:#a8a8a8;}
     
 }
 
-#var_icon{
-    border: 3px solid rgb(136,31,90);
-    background-color:rgb(136,31,90);
-    display: block; 
-    margin: 0px auto;
-    
-}
+
 #mypage_icon{
-    border: 3px solid rgb(136,31,90);
-    background-color:rgb(136,31,90);
+    border: 3px solid rgb(204,41,125);
+    background-color:rgb(204,41,125);
     display: block; 
-    margin: 4px auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 11px auto;
     
 }
 input{
@@ -55,33 +53,29 @@ input{
     
 }
 
-button{
-    border:1px;
-    background-color:rgb(136,31,90);
-    
-}
-
-#banner{
-    height:70px;
-    background-color:#fff;
-    border:5px solid red;
-    padding:20px;
-}
+ 
 
 
+
+/*내비바*/
 #nav{
     display:flex;
     flex-direction:row;
     justify-content: space-around;
-    margin-top:15px;
+    margin-top:10px;
     border-top:1px solid #a8a8a8;
     border-bottom: 1px solid #a8a8a8;
-    margin-top:10px;
     background-color:#fff;
     box-shadow: 1px 1px  #a8a8a8;
 }
 
+a.nav-link{
+    padding-top:5px;
+    padding-bottom:5px;
+}
 
+
+/*카드뉴스*/
 .bigcard_container{
 
     border: 1px solid #beb6b8;
@@ -132,12 +126,11 @@ button{
     margin:2%;
     display:grid;
     
-    /*grid-template-columns: repeat(2,1fr);*/
-    text-align: center;
-    /*max-width: width 100%;
-    height:auto !important;*/
+   
+    text-align: left;
+    
 }
-
+/*검색창*/
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 
@@ -146,12 +139,14 @@ button{
   position: relative;
   display: flex;
   margin-top:10px;
-  margin-left:10px;
+  margin-left:0px;
 }
 
 .searchTerm {
   width: 80%;
-  border: 2px solid rgb(136,31,90); 
+  border: 2px solid rgb(204,41,125); 
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
   border-right: none;
   padding: 5px;
   height: 45px;
@@ -164,7 +159,7 @@ button{
 .searchButton {
   width: 70px;
   height: 45px;
-  border:2px solid  rgb(136,31,90);
+  border:2px solid rgb(204,41,125);
   background:  #fff;
   text-align: center;
   color: #fff;
@@ -174,3 +169,114 @@ button{
 }
 
 
+
+/*성관계내비바*/
+
+#sex{
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    margin-top:15px;
+    border-top:1px solid #a8a8a8;
+    border-bottom: 1px solid rgb(204,41,125);
+    background-color:#fff;
+    box-shadow: 1px 1px #a8a8a8;
+    padding-top:8px;
+    padding-bottom:8px;
+}
+
+
+
+#before{
+    border: 0px;
+    padding: 0px;
+    background-color:#fff;
+}
+
+#doing{
+    border: 0px;
+    padding: 0px;
+    background-color:#fff;
+}
+
+#after{
+    border: 0px;
+    padding: 0px;
+    background-color:#fff;
+}
+
+
+/*로그인 성공*/
+#t_login{
+    margin :0;
+    padding:2px;
+    display:grid;
+    grid-template-columns:2fr 2fr 1fr;
+    border:0;
+    background-color:rgb(204,41,125);
+    width:auto;
+    height:20px;
+    font-size:0.8rem;
+}
+
+#hi{
+    color:white;
+    text-align:left;
+}
+
+
+
+#t_my{
+
+    text-align:right;
+    padding:0;
+}
+
+#t_out{
+
+    text-align:right;
+    padding:0;
+}
+
+/*로그인 실패*/
+
+#fail_login{
+    margin :0;
+    padding:2px;
+    display:grid;
+    text-align:right;
+    grid-template-columns:3fr 1fr 1fr;
+    border:0;
+    background-color:rgb(204,41,125);
+    width:auto;
+    height: 20px;
+    font-size:0.8rem;
+}
+
+a{
+    color:white;
+}
+
+/*포토슬라이더*/
+photo-slider {
+width: 100%;
+}
+
+photo-slider::after {
+    display: block;
+    content: '';
+    
+    /* 4:3 = height is 75% of width */
+}
+
+photo-slider img {
+    position: absolute;
+}
+photo-slider {
+/*   display: flex; */
+    justify-content: center;
+}
+photo-slider {
+    width: 100%;
+    height: 100px;
+}
