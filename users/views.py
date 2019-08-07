@@ -26,6 +26,6 @@ def update(request, id):
         form = UserChangeForm(request.POST, request.FILES or None, instance=user)
         if form.is_valid():
             form.save()
-        return redirect('main')
+        return redirect('basic')
 
     return render(request, 'users/update.html', context)

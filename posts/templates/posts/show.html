@@ -114,7 +114,7 @@
 {% block js %}
   <script>
       $(".like").click(function(){
-        var pk = $(this).attr('name')
+        var pk = $(this).attr('name');
         $.ajax({ // .like 버튼을 클릭하면 <새로고침> 없이 ajax로 서버와 통신하겠다.
           type: "POST", // 데이터를 전송하는 방법을 지정
           url: "{% url 'like_toggle' post.pk %}", // 통신할 url을 지정
@@ -134,8 +134,8 @@
             $('#count-{{ post.id }}').html(response.likes_count);
           },
           error: function(request, status, error){ // 통신 실패시 - 로그인 페이지 리다이렉트
-            alert("로그인이 필요합니다.")
-            window.location.replace("/accounts/login/")
+            alert("로그인이 필요합니다.");
+            window.location.replace("/accounts/login/");
             //  alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
           },
         });
