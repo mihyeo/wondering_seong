@@ -24,19 +24,21 @@
             </p>
         </div>
     </div>
+    {% if answer %}
     <div id="answer-card" class="card">
-            <div class="card-body">
-                <h5>
-                    {{ answer.title }}
-                </h5>
-                <span href="#">
-                    <h6>관리자</h6>
-                </span>
-                <p>
-                    {{ answer.content }}
-                </p>
-            </div>
+        <div class="card-body">
+            <h5>
+                {{ answer }}
+            </h5>
+            <span href="#">
+                <h6>관리자</h6>
+            </span>
+            <p>
+                {{ answer.content }}
+            </p>
         </div>
+    </div>
+    {% endif %}
 </div>
 {% endblock content %}
     

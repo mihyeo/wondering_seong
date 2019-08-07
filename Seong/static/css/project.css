@@ -24,3 +24,18 @@
 a{
     color:black;
 }
+
+
+.bmd-btn-fab {
+    border-radius: 100%;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    border: 7px solid #bf2b76;
+    font-size: 20px;
+}
+
+.btn-primary:hover {
+    background-color: #bf2b76;
+    border-color: #bf2b76;
+}

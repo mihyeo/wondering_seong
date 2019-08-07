@@ -23,17 +23,35 @@ def basic(request):
     return render(request, 'posts/basic.html', context)
 
 
-def sex(request):
+def before_sex(request):
     posts = Post.objects.filter(category=1)
     
     context = {
         'posts': posts
     }
-    return render(request, 'posts/sex.html', context)
+    return render(request, 'posts/before_sex.html', context)
+
+
+def sex_ing(request):
+    posts = Post.objects.filter(category=2)
+    
+    context = {
+        'posts': posts
+    }
+    return render(request, 'posts/sex_ing.html', context)
+
+
+def after_sex(request):
+    posts = Post.objects.filter(category=3)
+    
+    context = {
+        'posts': posts
+    }
+    return render(request, 'posts/after_sex.html', context)
 
 
 def news(request):
-    posts = Post.objects.filter(category=2)
+    posts = Post.objects.filter(category=4)
     context = {
         'posts': posts
     }

@@ -1,0 +1,27 @@
+{% include 'posts/_posts_header.html' %}
+
+<div Class="onclick-group">
+    {% if request.path == "/posts/before_sex/" %}
+        <a href="{% url 'before_sex' %}" class="button active">
+    {% else %}
+        <a href="{% url 'before_sex' %}" class="button">
+    {% endif %}
+        관계전
+    </a>
+    {% if request.path == "/posts/sex_ing/" %}
+        <a href="{% url 'sex_ing' %}" class="button active">
+    {% else %}
+        <a href="{% url 'sex_ing' %}" class="button">
+    {% endif %}
+        관계중
+    </a>
+    {% if request.path == "/posts/after_sex/" %}
+        <a href="{% url 'after_sex' %}" class="button active">
+    {% else %}
+        <a href="{% url 'after_sex' %}" class="button">
+    {% endif %}
+        관계후
+    </a>
+</div>
+        
+{% include 'posts/_posts.html' with posts=posts %}

@@ -19,8 +19,10 @@ class Post(TimeStampedModel):
     ]
     POST_CATEGORY_CHOICES = [
         (0, "basic"),
-        (1, "sex"),
-        (2, "news")
+        (1, "before_sex"),
+        (2, "sex_ing"),
+        (3, "after_sex"),
+        (4, "news")
     ]
     
     user = models.ForeignKey(User, verbose_name=_('글쓴이'), on_delete=models.CASCADE)

@@ -46,3 +46,6 @@ class Answer(TimeStampedModel):
     question = models.ForeignKey(Question, verbose_name=_('질문'), on_delete=models.CASCADE)
     title = models.CharField(_('제목'), max_length=200)
     content = models.TextField(_('내용'))
+
+    def __str__(self):
+        return "A. {}".format(self.title)

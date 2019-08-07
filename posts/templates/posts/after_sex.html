@@ -9,24 +9,10 @@
 {% endblock css %}
 
 {% block content %}
-    {% include 'posts/_posts_header.html' %}
 
-    <div Class="onclick-group">
-        <a href="#" class="button">
-            관계전
-        </a>
-        <a href="#" class="button">
-            관계중
-        </a>
-        <a href="#" class="button">
-            관계후
-        </a>
-    </div>
-         
-    {% include 'posts/_posts.html' with posts=posts %}
+{% include 'posts/_sex.html' with posts=posts %}
 
-    <style>
-
+<style>
     a.button {
     display:inline-block;
     width:30%;
@@ -51,11 +37,9 @@
     .onclick-group {
         width:100%;
         background-color: #ffffff;
-        text-align:center;
-  
-      
-  }
+        text-align:center;   
+    }
     
 </style>
 {% endblock content %}
-
+    

@@ -1,8 +1,17 @@
 <div Class="onclick-group">
-    <a href="{% url 'board_list' %}" class="button">
+    {% if request.path == "/boards/" %}
+        <a href="{% url 'board_list' %}" class="button active">
+    {% else %}
+        <a href="{% url 'board_list' %}" class="button">
+    {% endif %}
+
         공지사항
     </a>
-    <a href="{% url 'question_list' %}" class="button">
+    {% if request.path == "/boards/questions/" %}
+        <a href="{% url 'question_list' %}" class="button active">
+    {% else %}
+        <a href="{% url 'question_list' %}" class="button">
+    {% endif %}
         Q&A
     </a>
 </div>
@@ -35,5 +44,4 @@
         background-color: #ffffff;
         text-align:center;
     }
-
 </style>

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="{% static 'css/project.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/sexButton.css' %}">
+{% endblock css %}
+
+{% block content %}
+
+{% include 'posts/_sex.html' with posts=posts %}
+
+<style>
+    a.button {
+    display:inline-block;
+    width:30%;
+    height:30px;
+    background-color: #ffffff;
+    color:#000000;
+    text-align:center;
+    text-decoration: none;
+    }
+
+    a.active {
+    background-color: #ffffff;
+    border-bottom: 2px solid #bf2b76;
+    color: #bf2b76;
+    font-weight: 700;
+    
+    }
+    
+    div.active { 
+        display:block;
+    }
+    .onclick-group {
+        width:100%;
+        background-color: #ffffff;
+        text-align:center;   
+    }
+    
+</style>
+{% endblock content %}
+    
