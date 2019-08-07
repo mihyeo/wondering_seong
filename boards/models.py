@@ -9,7 +9,6 @@ class Board(TimeStampedModel):
     class Meta:
         verbose_name = '공지사항'
         verbose_name_plural = "공지사항"
-        ordering = ['-created_at']
 
     title = models.CharField(_('제목'), max_length=200)
     content = models.TextField(_('내용'))

@@ -71,6 +71,8 @@ def like_toggle(request, post_id):
     return HttpResponse(json.dumps(context), content_type="application/json")
 
 
+@require_POST
+@login_required
 def create_comment(request, post_id):
     if request.method == "POST":
         user = request.user
@@ -78,8 +80,14 @@ def create_comment(request, post_id):
             return redirect('account_login')
         post = get_object_or_404(Post, pk=post_id)
         body = request.POST.get('body')
-        Comment.objects.create(user=user, post=post, body=body)
-        return redirect('show', post_id)
+        comment = Comment.objects.create(user=user, post=post, body=body)
+        context = {
+            'username': user.username,
+            'body': comment.body,
+            'is_same': user == comment.user,
+            'comment_pk': comment.pk
+        }
+        return HttpResponse(json.dumps(context), content_type="application/json")
 
 
 def delete_comment(request, post_id, comment_id):

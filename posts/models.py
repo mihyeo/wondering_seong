@@ -68,6 +68,7 @@ class Comment(TimeStampedModel):
     class Meta:
         verbose_name = '댓글'
         verbose_name_plural = "댓글"
+        ordering = ['-created_at']
 
     user = models.ForeignKey(User, verbose_name=_('작성자'), on_delete=models.CASCADE)
     post = models.ForeignKey(Post, verbose_name=_('게시글'), on_delete=models.CASCADE)

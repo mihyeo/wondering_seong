@@ -1,12 +1,12 @@
-/*.btn-outline-primary {
-    color: rgb(136,31,90);
-    border-color: rgb(136,31,90);
+.btn{
+    background-color: #bf2b76;
+    border: 2px solid #bf2b76;
+    color:#fff;
+    
 }
 
-.btn-outline-primary:hover {
-    background-color: rgb(136,31,90);
-    border-color: rgb(136,31,90);
-}*/
+
+
 
 #board-tab{
     background-color:#fff;

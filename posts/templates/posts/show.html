@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
+<style>
+  p{
+    text-align:left;
+  }
+</style>
+
 {% block css %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="{% static 'css/project.css' %}" rel="stylesheet">
@@ -84,26 +90,20 @@
   <hr>
   
   <div id="comments">
-      <form action="{% url 'create_comment' post.pk %}" method="POST" style="margin-top: 50px;">
+      <form action="#" method="POST" style="margin-top: 50px;">
           {% csrf_token %}
           <div class="form-group">
-              <textarea class="form-control" name="body" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="댓글 달기..."></textarea>
+              <textarea class="form-control" name="body" id="comment-content" aria-describedby="emailHelp" placeholder="댓글 달기..."></textarea>
           </div>
-          <button type="submit" class="btn btn-primary right">작성</button>
+          <p align="right">
+            <span href="#" class="btn" id="comment-submit">작성</span>
+          </p>
       </form><br>
       
       {% if post.comments %}
-      <ul class="list-group">
+      <ul class="list-group" id="comment-list">
           {% for comment in post.comments %}
-          <li class="list-group-item">
-              <p>
-                  <b>{{ comment.user.username }}</b>
-                  {% if user == comment.user %}
-                      <a href="{% url 'delete_comment' post.pk comment.pk %}" class="right">삭제</a>
-                  {% endif %}
-              </p>
-              <p>{{ comment.body }}</p>
-          </li>
+            {% include 'posts/_comment.html' with body=comment.body username=comment.user.username user=request.user comment_user=comment.user %}
           {% endfor %}
       </ul>
       {% endif %}
@@ -140,6 +140,59 @@
           },
         });
       })
+
+      $('#comment-submit').on('click', function(){
+        var commentContent = $('#comment-content').val();
+        if (commentContent == "") {
+          alert('댓글 내용을 입력해주세요.')
+        }
+        else {
+          $.ajax({ // .like 버튼을 클릭하면 <새로고침> 없이 ajax로 서버와 통신하겠다.
+            type: "POST", // 데이터를 전송하는 방법을 지정
+            url: "{% url 'create_comment' post.pk %}", // 통신할 url을 지정
+            data: {'body': commentContent,'csrfmiddlewaretoken': '{{ csrf_token }}'}, // 서버로 데이터 전송시 옵션
+            dataType: "json", // 서버측에서 전송한 데이터를 어떤 형식의 데이터로서 해석할 것인가를 지정, 없으면 알아서 판단
+            success: function(response){ // 통신 성공시 - 동적으로 좋아요 갯수 변경, 유저 목록 변경
+              if (response.is_same == true) {
+                $('#comment-list').prepend(
+                  '<li class="list-group-item">'+
+                      '<p>'+
+                          '<span>'+
+                              response.username+
+                                '<a href="/posts/{{ post.pk }}/delete_comment/' + response.comment_pk + '/" class="right wonder">'+
+                                  '삭제'+
+                                '</a>'+
+                          '</span>'+
+                      '</p>'+
+                      '<p>'+
+                        response.body+
+                      '</p>'+
+                  '</li>'
+                );
+              }
+              else {
+                $('#comment-list').prepend(
+                  '<li class="list-group-item">'+
+                      '<p>'+
+                          '<span>'+
+                              response.username+
+                          '</span>'+
+                      '</p>'+
+                      '<p>'+
+                        response.body+
+                      '</p>'+
+                  '</li>'
+                );
+              }
+              $('#comment-content').val("");
+            },
+            error: function(request, status, error){ // 통신 실패시 - 로그인 페이지 리다이렉트
+              alert("로그인이 필요합니다.");
+              window.location.replace("/accounts/login/");
+            },
+          });
+        }
+      });
   </script>
 {% endblock %}
   
