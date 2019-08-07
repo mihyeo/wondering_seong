@@ -170,10 +170,9 @@ input{
 
 button{
     border:1px;
-    background-color:#bf2b76;
+    /* background-color:#bf2b76; */
     margin-left: auto;
     margin-right: auto;
-    
 }
 
 

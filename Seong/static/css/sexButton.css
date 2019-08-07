@@ -1,14 +1,4 @@
-.btn{
-    background-color: #bf2b76;
-    border: 2px solid #bf2b76;
-    color:#fff;
-    
-}
-
-
-
-
-#board-tab{
+#sexButton{
     background-color:#fff;
     display:flex;
     flex-direction: row;
@@ -21,6 +11,3 @@
     padding-bottom:3px;
 }
 
-a{
-    color:black;
-}

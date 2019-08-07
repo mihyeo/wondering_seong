@@ -15,8 +15,10 @@
 
     <div class="list-group">
         {% for board in boards %}
+        
             <a href="{% url 'board_show' board.pk %}" class="list-group-item list-group-item-action">{{ board }}</a>
         {% endfor %}
+        
     </div>
 {% endblock content %}
 

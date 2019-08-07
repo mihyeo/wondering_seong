@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
+<style>
+  p{
+    text-align:left;
+  }
+</style>
+
 {% block css %}
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="{% static 'css/project.css' %}" rel="stylesheet">
@@ -104,8 +110,9 @@
               <textarea class="form-control" name="body" id="comment-content" aria-describedby="emailHelp" placeholder="댓글 달기..."></textarea>
           </div>
 
-<span href="#" class="btn btn-outline-primary right" id="comment-submit">작성</span>
-
+          <p align="right">
+            <span href="#" class="btn" id="comment-submit">작성</span>
+          </p>
       </form><br>
       
       {% if post.comments %}
