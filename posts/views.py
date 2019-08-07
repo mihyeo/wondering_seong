@@ -25,6 +25,25 @@ def sex(request):
     return render(request, 'posts/sex.html', context)
 
 
+def sex_ing(request):
+    posts = Post.objects.filter(category=1)
+    
+    context = {
+        'posts': posts
+    }
+    return render(request, 'posts/sex_ing.html', context)
+
+
+
+def sex_after(request):
+    posts = Post.objects.filter(category=1)
+    
+    context = {
+        'posts': posts
+    }
+    return render(request, 'posts/sex_after.html', context)
+
+
 def news(request):
     posts = Post.objects.filter(category=2)
     context = {
@@ -94,5 +113,7 @@ def delete_comment(request, post_id, comment_id):
     comment = get_object_or_404(Comment, pk=comment_id)
     comment.delete()
     return redirect('show', post_id)
+
+
     
     

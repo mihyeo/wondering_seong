@@ -3,6 +3,8 @@ from .views import sex, news, show, like_toggle, create_comment, delete_comment
 
 urlpatterns = [
     path('sex/', sex, name="sex"),
+    path('sex_ing/', sex, name="sex_ing"),
+    path('sex_after/', sex, name="sex_after"),
     path('news/', news, name="news"),
     path('show/<int:id>/', show, name="show"),
     path('like_toggle/<int:post_id>/', like_toggle, name="like_toggle"),
