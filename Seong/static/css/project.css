@@ -1,9 +1,13 @@
 .btn-outline-primary {
-    color: rgb(136,31,90);
-    border-color: rgb(136,31,90);
+    color: #bf2b76;
+    border-color: #bf2b76;
 }
 
 .btn-outline-primary:hover {
-    background-color: rgb(136,31,90);
-    border-color: rgb(136,31,90);
+    background-color: #bf2b76;
+    border-color: #bf2b76;
+}
+
+.wonder {
+    color: #bf2b76;
 }
