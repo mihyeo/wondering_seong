@@ -1,4 +1,8 @@
 
+body{
+    background-color:#f2f2f5;
+}
+
 input:-ms-imput-placeholder {color:#a8a8a8;}
 input::-webkit-input-placeholder {color:#a8a8a8;}
 input::-moz-placeholder {color:#a8a8a8;} 
@@ -10,34 +14,29 @@ input::-moz-placeholder {color:#a8a8a8;}
     display:grid;
     grid-template-columns: 1fr 4fr 1fr;
     border:0;
-    background-color:rgb(136,31,90);
+    background-color:#bf2b76;
     width:auto;
     height: 70px;
 }
 #logo{
+    border: 3px solid #bf2b76;
     display: block; 
     margin:10px auto; 
 }
 
 
-#search_icon{
+/*#search_icon{
     background-color:white;
 }
 
-#var_icon{
-    border: 3px solid rgb(136,31,90);
-    background-color:rgb(136,31,90);
-    display: block; 
-    margin: 0px auto;
-    
-}
+
 #mypage_icon{
-    border: 3px solid rgb(136,31,90);
-    background-color:rgb(136,31,90);
+    border: 3px solid #bf2b76;
+    background-color:#bf2b76;
     display: block; 
     margin: 4px auto;
     
-}
+}*/
 input{
     font-size :1rem;
     padding:10px;
@@ -50,16 +49,10 @@ input{
 
 button{
     border:1px;
-    background-color:rgb(136,31,90);
+    background-color:#bf2b76;
     
 }
 
-#banner{
-    height:70px;
-    background-color:#fff;
-    border:5px solid red;
-    padding:20px;
-}
 
 
 #nav{
@@ -69,7 +62,7 @@ button{
     border-top:1px solid #a8a8a8;
     border-bottom: 1px solid #a8a8a8;
     background-color:#fff;
-    box-shadow: 1px 1px  #a8a8a8;
+    box-shadow: 3px 3px  #e6e6e6;
 }
 
 
@@ -82,15 +75,16 @@ button{
     float:left;
     text-align: left;
     background-color:#fff;
-    box-shadow: 1px 1px  #a8a8a8;
+    box-shadow: 3px 3px  #e6e6e6;
+
 }
 
 .title {
     margin:2%;
-    font-size : 15px;
+    font-size : 14px;
     color: black;
     font-weight:bold;
-    padding-left:10px;
+    padding-left:5px;
 }
 
 .content{
@@ -99,6 +93,11 @@ button{
     color: darkgrey;
     font-weight:lighter;
     padding-left:10px;
+    width:100px;
+    padding:0 5px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
 }
 
 .img {
@@ -119,19 +118,10 @@ button{
     text-align: center;
 }
 
-#header {
-    text-align: left;
-    margin:0;
-    display:grid;
-    border:0;
-    background-color:rgb(136,31,90);
-    
-}
-#logo{
-    border: 3px solid rgb(136,31,90);
-    display: block; 
-    margin: 0px auto; 
-}
+
+
+
+
 #search{
     background-color:white;
 }
@@ -139,6 +129,7 @@ button{
 #search-icon-img {
     width: 35px;
     height: 35px;
+    margin-left:5px;
 }
 
 #search-icon {
@@ -147,6 +138,10 @@ button{
 }
 
 #mypage-icon-img {
+    border: 3px solid #bf2b76;
+    background-color:#bf2b76;
+    display: block; 
+    margin: 4px auto;/*추가*/
     width: 40px;
     height: 40px;
 }
@@ -155,16 +150,10 @@ button{
     background-color:white;
 }
 
-#var_icon{
-    border: 3px solid rgb(136,31,90);
-    background-color:rgb(136,31,90);
-    display: block; 
-    margin: 0px auto;
-    
-}
+
 #mypage_icon{
-    border: 3px solid rgb(136,31,90);
-    background-color:rgb(136,31,90);
+    border: 3px solid #bf2b76;
+    background-color:#bf2b76;
     display: block; 
     margin: 0px auto;
     
@@ -181,16 +170,11 @@ input{
 
 button{
     border:1px;
-    background-color:rgb(136,31,90);
+    background-color:#bf2b76;
     
 }
 
-#banner{
-    height:70px;
-    
-    border:5px solid red;
-    padding:20px;
-}
+
 
 .carousel-item > img {
     width: 100%;
@@ -272,29 +256,27 @@ input#img-4:checked ~ .nav-dots label#img-dot-4, {
 @import url(https://fonts.googleapis.com/css?family=Open+Sans);
 
 
-.search {
-  width: 100%;
-  position: relative;
-  display: flex;
-  margin-top:10px;
-  margin-left:10px;
+#search{
+    width:60%;
+    height:35px;
+    border-radius: 5px 5px 5px 5px;
+    margin-left:7px;
 }
-
 .searchTerm {
-    width: 55%;
-    font-size: 14px;
-    border-right: none;
-    border-radius: 5px 0px 0px 5px;;
+    width: 65%;
+    margin-left:10px;
+    text-align:center;
+    font-size:10px;
+    border-radius: 5px 0px 0px 5px;
     color: black;
 }
 
 .searchButton {
-    width: 15%;
-    height: 39px;
+    width: 20%;
+    height: 35px;
     background: #fff;
-    text-align: center;
     color: #fff;
     border-radius: 0px 5px 5px 0px;
-    cursor: pointer;
-    font-size: 20px;
 }
+
+
