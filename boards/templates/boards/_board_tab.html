@@ -1,4 +1,42 @@
-<div id="board-tab">
-    <a href="{% url 'board_list' %}" class="btn btn-outline-primary tab-button">공지사항</a>
-    <a href="{% url 'question_list' %}" class="btn btn-outline-primary tab-button">Q&A</a>
-</div>
+<div Class="onclick-group">
+        <a href="{% url 'board_list' %}" class="button">
+            공지사항
+        </a>
+        <a href="{% url 'question_list' %}" class="button">
+            Q&A
+        </a>
+
+<style>
+
+      a.button {
+    display:inline-block;
+    width:30%;
+    height:30px;
+    background-color: #ffffff;
+    color:#000000;
+    text-align:center;
+    text-decoration: none;
+    }
+
+    a.active {
+    background-color: #ffffff;
+    border-bottom: 2px solid #bf2b76;
+    color: #bf2b76;
+    font-weight: 700;
+    
+    }
+    
+    div.active { 
+        display:block;
+    }
+    .onclick-group {
+        width:100%;
+        background-color: #ffffff;
+        text-align:center;
+  
+      
+  }
+    }
+
+</style>
+

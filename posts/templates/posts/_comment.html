@@ -1,0 +1,11 @@
+<li class="list-group-item">
+    <p>
+        <span>
+            {{ username }}
+            {% if user == comment_user %}
+                <a href="{% url 'delete_comment' post.pk comment.pk %}" class="right wonder">삭제</a>
+            {% endif %}
+        </span>
+    </p>
+    <p>{{ body }}</p>
+</li>
