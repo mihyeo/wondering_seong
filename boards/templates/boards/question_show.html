@@ -10,16 +10,16 @@
 
 {% block content %}
 <div class="container" id="board-container">
-    <a href="{% url 'question_list' %}" class="btn btn-outline-primary" id='back-button'>뒤로가기</a>
+    
     <div id="question-card" class="card">
         <div class="card-body">
             <h5>
                 {{ question }}?
             </h5>
             <a href="#">
-                <h6>{{ question.user }}</h6>
+                <h6 style="text-align:right">{{ question.user }}</h6>
             </a>
-            <p>
+            <p style="margin-left:40px">
                 {{ question.content }}
             </p>
         </div>
@@ -27,17 +27,20 @@
     {% if answer %}
     <div id="answer-card" class="card">
         <div class="card-body">
-            <h5>
+            <h5 style="text-align:left">
                 {{ answer }}
             </h5>
             <span href="#">
                 <h6>관리자</h6>
             </span>
-            <p>
+            <p style = "text-align:left; margin-left:40px;" >
                 {{ answer.content }}
             </p>
         </div>
+       
     </div>
+    <br><br>
+    <P style="text-align: center"><a href="{% url 'question_list' %}" class="btn btn-outline-primary" id='back-button'>목록보기</a></p>
     {% endif %}
 </div>
 {% endblock content %}

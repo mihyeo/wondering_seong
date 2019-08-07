@@ -17,16 +17,18 @@
     <table class="table">
             <thead>
             <tr>
-                <th style="background-color: rgba(255, 255, 255, 0.726)">{{ board.title }}</th>
+                <th style="background-color: rgba(243, 242, 242, 0.685)">{{ board.title }}</th>
+                
             </tr>
             </thead>
+            
             <tbody>
             <tr>
                 <th style="background-color: rgba(255, 255, 255, 0.918)">{{ board.content }}</th>
             </tr>
             </tbody>
         </table>
-    <P style="text-align: center"><a href="{% url 'board_list' %}" class="btn btn-outline-primary" id="back-button" style="position: center;">뒤로가기</a></P>
+    <P style="text-align: center"><a href="{% url 'board_list' %}" class="btn btn-outline-primary" id="back-button" style="position: center;">목록보기</a></P>
 </div>
 {% endblock content %}
 
