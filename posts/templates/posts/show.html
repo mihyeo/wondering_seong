@@ -9,59 +9,65 @@
 {% endblock css %}
 
 {% block content %}
+
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-{% if post.kinds == 1 %}
-    {% if post.image %}    
-      <img src="{{ post.image.url }}" class="d-block w-100" alt="...">
-    {% endif %}
-{% elif post.kinds == 0 %}
     <ol class="carousel-indicators">
       <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
-    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        {% for card_image in post.card_images %}
-          {% if forloop.counter == 1 %}
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          {% else %}
-            <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}"></li>
-          {% endif %}
-        {% endfor %}
-      </ol>
-      <div class="carousel-inner">
-        {% for card_image in post.card_images %}
-          {% if forloop.counter == 1 %}
-            <div class="carousel-item active">
-          {% else %}
-            <div class="carousel-item">
-          {% endif %}
-              {% if card_image.image %}
-                  <img src="{{ card_image.image.url }}" class="d-block w-100" alt="...">
-              {% endif %}
-            </div>
-        {% endfor %}
+    
+  {% if post.kinds == 1 %}
+      {% if post.image %}    
+      <img src="{{ post.image.url }}" class="d-block w-100" alt="...">
+      {% endif %}
+  {% elif post.kinds == 0 %}
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          {% for card_image in post.card_images %}
+            {% if forloop.counter == 1 %}
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            {% else %}
+              <li data-target="#carouselExampleIndicators" data-slide-to="{{ forloop.counter0 }}"></li>
+            {% endif %}
+          {% endfor %}
+        </ol>
+        <div class="carousel-inner">
+          {% for card_image in post.card_images %}
+            {% if forloop.counter == 1 %}
+              <div class="carousel-item active">
+            {% else %}
+              <div class="carousel-item">
+            {% endif %}
+                {% if card_image.image %}
+                    <img src="{{ card_image.image.url }}" class="d-block w-100" alt="...">
+                {% endif %}
+              </div>
+          {% endfor %}
+        </div>
       </div>
-    </div>
-{% endif %}
+  {% endif %}
+
 <div class="container" id="post-container">
   <div class="row">
     <div class="col-7">
-        <h5 id="post-title">{{ post.title }}</h5>
+        <h5 id="post-title"><b>{{ post.title }}</b></h5>
     </div>
+    
     <div class="col-5">
         <a href="#" class="black">
-          <span>
-            <img src="{% static 'image/logo.png' %}" width="30" height="30" alt="...">
+          <span> &emsp; &ensp;
+              <img src="{% static 'image/logo.png' %}" width="30" height="30" alt="...">
             {{ post.user }}
           </span>
         </a>
+      
     </div>
-  </div>
-  <div id="small-infos">
-    <p id="view-count">조회수 : {{post.view_count}}</p>
-    <p>{{ post.created_at }}</p>
+
+    <div id="small-infos2">
+        <p>{{ post.created_at }}</p>
+    </div>
+  
   </div>
 
   <p id="post-content">
@@ -79,7 +85,15 @@
         {% endif %}
       </span> 
       <span id="count-{{ post.id }}">{{ post.likes_count }}</span>
-  </div><br>
+      
+  </div>
+
+  <div id="small-infos">
+      <p id="view-count">조회수 : {{post.view_count}}</p>
+      
+  </div>
+  
+  <br>
 
   <hr>
   
@@ -89,7 +103,9 @@
           <div class="form-group">
               <textarea class="form-control" name="body" id="comment-content" aria-describedby="emailHelp" placeholder="댓글 달기..."></textarea>
           </div>
-          <span href="#" class="btn btn-outline-primary right" id="comment-submit">작성</span>
+
+<span href="#" class="btn btn-outline-primary right" id="comment-submit">작성</span>
+
       </form><br>
       
       {% if post.comments %}
