@@ -5,10 +5,17 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link href="{% static 'css/project.css' %}" rel="stylesheet">
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/sexButton.css' %}">
 {% endblock css %}
 
 {% block content %}
     {% include 'posts/_posts_header.html' %}
+
+    <div id = "sexButton">
+        <button><a href="#">관계전</a></button>
+        <button><a href="#">관계중</a></button>
+        <button><a href="#">관계후</a></button>
+    </div>
 
     {% include 'posts/_posts.html' with posts=posts %}
 {% endblock content %}

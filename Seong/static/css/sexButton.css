@@ -1,14 +1,4 @@
-/*.btn-outline-primary {
-    color: rgb(136,31,90);
-    border-color: rgb(136,31,90);
-}
-
-.btn-outline-primary:hover {
-    background-color: rgb(136,31,90);
-    border-color: rgb(136,31,90);
-}*/
-
-#board-tab{
+#sexButton{
     background-color:#fff;
     display:flex;
     flex-direction: row;
@@ -21,6 +11,3 @@
     padding-bottom:3px;
 }
 
-a{
-    color:black;
-}
