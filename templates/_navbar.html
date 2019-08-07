@@ -1,30 +1,41 @@
 {% load static %}
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: rgb(136,31,90);">
+
+{% block css %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="{% static 'css/project.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/header.css' %}">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+{% endblock css %}
+
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #bf2b76;">
     <a href="{% url 'basic' %}"><img src="/static/image/logo.png" id="search-icon-img"></a>
-    <input type="text" class="searchTerm" placeholder="검색어를 입력해주세요.">
+    <div id="search">
+    <input type="text" class="searchTerm" placeholder="ex)섹스 궁금했성">
     <button type="submit" class="searchButton">
         <img src = "/static/image/search_icon.png" id="search-icon">
     </button>
+</div>
     <a href="#">
       <img src="{% static 'image/user_icon.png' %}" id="mypage-icon-img" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     </a>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav">
+        <ul>
             {% if request.user.is_authenticated %}
-                <li class="nav-item">
-                    <a class="nav-link" href="#">{{ request.user }}님 반갑습니다</a>
+                <li class="active">
+                    <a style="font-size: 60%" class="nav-link"  href="#">{{ request.user }}님 무엇이 궁금했성?</a>
                 </li>
+                <br>
                 <li>
                     <a href="{% url 'users:profile' user.pk %}" class="nav-link">마이페이지</a>
                 </li>
-                <li class="nav-item">
+                <li class="active">
                     <a class="nav-link" href="{% url 'account_logout' %}">로그아웃</a>
                 </li>
             {% else %}
-                <li class="nav-item">
+                <li class="active">
                     <a class="nav-link" href="{% url 'account_login' %}">로그인</a>
                 </li>
-                <li class="nav-item">
+                <li class="active">
                     <a class="nav-link" href="{% url 'account_signup' %}">회원가입</a>
                 </li>
             {% endif %}
