@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from users.models import User
 from django.shortcuts import get_object_or_404
 
+
 class Board(TimeStampedModel):
 
     class Meta:
@@ -15,7 +16,7 @@ class Board(TimeStampedModel):
     view_count = models.IntegerField(_('조회수'), default=0)
 
     def __str__(self):
-        return "{}. {}".format(self.pk, self.title)
+        return "{}".format(self.title)
 
 
 class Question(TimeStampedModel):
@@ -28,9 +29,10 @@ class Question(TimeStampedModel):
     user = models.ForeignKey(User, verbose_name=_('질문자'), on_delete=models.CASCADE)
     title = models.CharField(_('제목'), max_length=200)
     content = models.TextField(_('내용'))
+    view_count = models.IntegerField(_('조회수'), default=0)
 
     def __str__(self):
-        return "Q{}. {}".format(self.pk, self.title)
+        return "{}".format(self.title)
     
     @property
     def answer(self):
