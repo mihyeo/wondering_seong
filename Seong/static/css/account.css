@@ -1,5 +1,5 @@
 body {
-    background-color: #f2f2f5
+    background-color: #f2f2f5;
   }
 
 .header{
@@ -23,7 +23,7 @@ body {
     margin-left : auto;
     margin-right : auto;
     width : 30%;
-    border:3px solid orangered;
+    border:3px solid #bf2b76;
     text-align : center;
     padding : 50px 0px;
     margin-top:50px;
@@ -37,12 +37,12 @@ body {
 .email{
     margin-left : 10%;
     margin-right : 10%;
-    border-bottom:3px solid rgb(177, 21, 81);
+    border-bottom:3px solid #bf2b76;
 }
 .password{
     margin-left : 10%;
     margin-right : 10%;
-    border-bottom:3px solid rgb(177, 21, 81);
+    border-bottom:3px solid #bf2b76;
 }
 .find{
     display : flex;
@@ -74,7 +74,7 @@ body {
     width : 30%;
 }
 .login_bar{
-    background-color:  rgb(177, 21, 81); 
+    background-color:  #bf2b76; 
     padding:10px;
     text-align: center;
 }
@@ -117,11 +117,11 @@ input[type=submit]:hover {
 }
 
 
-.button3 {  background-color: #c0392b;
+.button3 {  background-color: #bf2b76;
             width: 70%;
             height: 40px;
             border-radius: 30px;
-            border: 2px solid #c0392b; 
+            border: 2px solid #bf2b76;
             font-size: 20px;
             color:white;
 }
