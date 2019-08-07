@@ -9,9 +9,16 @@ import pdb
 
 
 def basic(request):
-    posts = Post.objects.filter(category=0)
+    query = request.GET.get('query')
+    if query:
+        posts = Post.objects.filter(title__contains=query)
+    else:
+        query = ""
+        posts = Post.objects.filter(category=0)
+
     context = {
-        'posts': posts
+        'posts': posts,
+        'query': query
     }
     return render(request, 'posts/basic.html', context)
 

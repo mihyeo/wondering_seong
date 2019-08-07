@@ -10,10 +10,12 @@
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #bf2b76;">
     <a href="{% url 'basic' %}"><img src="/static/image/logo.png" id="search-icon-img"></a>
     <div id="search">
-    <input type="text" class="searchTerm" placeholder="ex)섹스 궁금했성">
-    <button type="submit" class="searchButton">
-        <img src = "/static/image/search_icon.png" id="search-icon">
-    </button>
+    <form action="{% url 'basic' %}" method="GET">
+        <input type="text" name="query" class="searchTerm" value="{{ query }}" placeholder="ex)섹스 궁금했성">
+        <button type="submit" class="searchButton">
+            <img src = "/static/image/search_icon.png" id="search-icon">
+        </button>
+    </form>
 </div>
     <a href="#">
       <img src="{% static 'image/user_icon.png' %}" id="mypage-icon-img" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
