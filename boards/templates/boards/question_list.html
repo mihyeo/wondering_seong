@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="{% static 'css/project.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/board_list.css' %}">
+{% endblock css %}
+
+{% block content %}
+    {% include 'posts/_posts_header.html' %}
+
+    {% include 'boards/_board_tab.html' %}
+
+    <div class="list-group">
+        {% for question in questions %}
+            <a href="{% url 'question_show' question.pk %}" class="list-group-item list-group-item-action">{{ question }}</a>
+        {% endfor %}
+    </div>
+{% endblock content %}
+    

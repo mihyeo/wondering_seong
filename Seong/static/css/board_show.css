@@ -1,0 +1,12 @@
+#board-container {
+    margin-top: 20px;
+}
+
+#back-button {
+    margin-bottom: 30px;
+}
+
+#answer-card {
+    margin-top: 30px;
+    text-align: right;
+}

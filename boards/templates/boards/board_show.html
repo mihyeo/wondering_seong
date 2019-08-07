@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="{% static 'css/project.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/board_show.css' %}">
+{% endblock css %}
+
+{% block content %}
+<div class="container" id="board-container">
+    <a href="{% url 'board_list' %}" class="btn btn-outline-primary" id='back-button'>뒤로가기</a>
+    <h5>
+        {{ board.title }}
+    </h5>
+    <p>
+        {{ board.content }}
+    </p>
+</div>
+{% endblock content %}
+    
