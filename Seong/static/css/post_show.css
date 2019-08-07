@@ -4,6 +4,11 @@ p {
     font-size: 13px;
 }
 
+.d-block{
+    width : 100%;
+    height: 1000px;
+}
+
 #post-container {
     margin-top: 20px;
 }
@@ -17,23 +22,28 @@ p {
     float: right;
 }
 
+#small-infos2 {
+    float: left;
+    margin-left : 18px;
+}
+
 .black {
     color: black;
 }
 
 #view-count {
-    text-align: right;
+    text-align: left;
 }
 
 #post-content {
-    margin-top: 70px;
+    margin-top: 30px;
     font-size: 15px;
     font-weight: 600;
-    font-color: grey;
+    color : #6e6e6e;
 }
 
 #like-toggle {
-    float: right;
+    float: left;
 }
 
 #comments {
