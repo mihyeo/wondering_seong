@@ -1,8 +1,4 @@
 
-body {
-    background-color: #f2f2f5
-}
-
 input:-ms-imput-placeholder {color:#a8a8a8;}
 input::-webkit-input-placeholder {color:#a8a8a8;}
 input::-moz-placeholder {color:#a8a8a8;} 
@@ -17,7 +13,6 @@ input::-moz-placeholder {color:#a8a8a8;}
     background-color:rgb(136,31,90);
     width:auto;
     height: 70px;
-    
 }
 #logo{
     display: block; 
@@ -27,8 +22,6 @@ input::-moz-placeholder {color:#a8a8a8;}
 
 #search_icon{
     background-color:white;
-    
-    
 }
 
 #var_icon{
@@ -70,14 +63,11 @@ button{
 
 
 #nav{
-    margin-top: 170px !important;
     display:flex;
     flex-direction:row;
     justify-content: space-around;
-    margin-top:15px;
     border-top:1px solid #a8a8a8;
     border-bottom: 1px solid #a8a8a8;
-    margin-top:10px;
     background-color:#fff;
     box-shadow: 1px 1px  #a8a8a8;
 }
@@ -202,36 +192,9 @@ button{
     padding:20px;
 }
 
-
-@import url(https://fonts.googleapis.com/css?family=Varela+Round);
-
-.slides {
-    padding: 0;
+.carousel-item > img {
     width: 100%;
-    height: 30px;
-    display: block;
-    margin: 0 auto;
-    position: relative;
-}
-
-.slides input { display: none; }
-
-.slide-container { display: block; }
-
-.slide {
-    top: 0;
-    opacity: 0;
-    width: 100%;
-    height: 30px;
-    display: block;
-    position: absolute;
-    transform: scale(0);
-    transition: all .7s ease-in-out;
-}
-
-.slide img {
-    width: 100%;
-    max-height: 200px;
+    max-height: 140px;
 }
 
 .nav label {

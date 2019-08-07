@@ -9,6 +9,7 @@ class Post(TimeStampedModel):
     class Meta:
         verbose_name = '게시글'
         verbose_name_plural = "게시글"
+        ordering = ['-created_at']
 
     POST_KIND_CHOICES = [
         (0, "card"),
@@ -27,7 +28,10 @@ class Post(TimeStampedModel):
     category = models.PositiveSmallIntegerField(_('카테고리'), choices=POST_CATEGORY_CHOICES)
     view_count = models.IntegerField(_('조회수'), default=0)
     image = models.ImageField(_('대표이미지'), null=True, upload_to="image/", blank=True)
-    likes = models.ManyToManyField(User, verbose_name=_('좋아요'), related_name="liked_users", blank=True)
+    like_users = models.ManyToManyField(User,
+                                        blank=True,
+                                        related_name='like_users',
+                                        through='Like')
     
     def __str__(self):
         return self.title
@@ -39,6 +43,10 @@ class Post(TimeStampedModel):
     @property
     def comments(self):
         return Comment.objects.filter(post=self)
+
+    @property
+    def likes_count(self):
+        return self.like_users.count()
     
 
 class CardImage(TimeStampedModel):
@@ -64,3 +72,15 @@ class Comment(TimeStampedModel):
     user = models.ForeignKey(User, verbose_name=_('작성자'), on_delete=models.CASCADE)
     post = models.ForeignKey(Post, verbose_name=_('게시글'), on_delete=models.CASCADE)
     body = models.TextField(_('내용'))
+
+
+class Like(TimeStampedModel):
+    user = models.ForeignKey(User, verbose_name=_('작성자'), on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, verbose_name=_('게시글'), on_delete=models.CASCADE)
+
+    class Meta:
+        verbose_name = '좋아요'
+        verbose_name_plural = '좋아요'
+        unique_together = (
+            ('user', 'post')
+        )

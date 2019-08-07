@@ -1,6 +1,10 @@
+import json
 from django.shortcuts import render, redirect, get_object_or_404
+from django.http import HttpResponse
 from .models import Post, Comment
 from django.db.models import Count
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_POST
 import pdb
 
 
@@ -32,10 +36,8 @@ def show(request, id):
     post = get_object_or_404(Post, pk=id)
     post.view_count = post.view_count + 1
     post.save()
-    likes_count = post.likes.count()
     context = {
         'post': post,
-        'likes_count': likes_count
     }
     return render(request,'posts/show.html', context)
 
@@ -51,18 +53,22 @@ def create(request):
         return render(request,'posts/basic.html')
 
 
+@require_POST
+@login_required
 def like_toggle(request, post_id):
     post = get_object_or_404(Post, pk=post_id)
-    user = request.user
-    if user.is_anonymous:
-        return redirect('account_login')
+    post_like, post_like_created = post.like_set.get_or_create(user=request.user)
 
-    if user in post.likes.all():
-        post.likes.remove(user)
+    if not post_like_created:
+        post_like.delete()
+        result = "like_cancel"
     else:
-        post.likes.add(user)
+        result = "like"
 
-    return redirect('show', post_id)
+    context = {'likes_count': post.likes_count,
+               'result': result}
+
+    return HttpResponse(json.dumps(context), content_type="application/json")
 
 
 def create_comment(request, post_id):

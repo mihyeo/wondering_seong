@@ -1,0 +1,45 @@
+p {
+    margin: 0px;
+    margin-right: 9px;
+    font-size: 13px;
+}
+
+#post-container {
+    margin-top: 20px;
+}
+
+#post-title {
+    margin-top: 7px;
+    white-space: nowrap;
+}
+
+#small-infos {
+    float: right;
+}
+
+.black {
+    color: black;
+}
+
+#view-count {
+    text-align: right;
+}
+
+#post-content {
+    margin-top: 70px;
+    font-size: 15px;
+    font-weight: 600;
+    font-color: grey;
+}
+
+#like-toggle {
+    float: right;
+}
+
+#comments {
+    margin-bottom: 50px;
+}
+
+#like-icon {
+    color: red;
+}
