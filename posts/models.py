@@ -2,6 +2,8 @@ from django.db import models
 from users.models import User
 from share.timestamp import TimeStampedModel
 from django.utils.translation import ugettext_lazy as _
+from imagekit.models import ProcessedImageField
+from imagekit.processors import Thumbnail
 
 
 class Post(TimeStampedModel):

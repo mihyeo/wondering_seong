@@ -7,17 +7,26 @@
 <link rel="stylesheet" href="{% static 'css/base.css' %}">
 <link rel="stylesheet" href="{% static 'css/board_show.css' %}">
 {% endblock css %}
+<style>
 
+
+</style>
+<body>
 {% block content %}
-<div class="container" id="board-container">
-    <a href="{% url 'board_list' %}" class="btn btn-outline-primary" id='back-button'>뒤로가기</a>
-    <h5>
-        {{ board.title }}
-    </h5>
-    <p>
-        {{ board.content }}
-    </p>
+<div class="container" id="board-container">   
+    <table class="table">
+            <thead>
+            <tr>
+                <th style="background-color: rgba(255, 255, 255, 0.726)">{{ board.title }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th style="background-color: rgba(255, 255, 255, 0.918)">{{ board.content }}</th>
+            </tr>
+            </tbody>
+        </table>
+    <P style="text-align: center"><a href="{% url 'board_list' %}" class="btn btn-outline-primary" id="back-button" style="position: center;">뒤로가기</a></P>
 </div>
-{% block content %}
 {% endblock content %}
 
