@@ -286,3 +286,5 @@ my_sns/media/
 db.sqlite3
 **/migrations/
 **/**/migrations
+**/__pycache__
+**/**/__pycache__
