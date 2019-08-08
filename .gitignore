@@ -280,7 +280,7 @@ pip-selfcheck.json
 
 ### Project template
 
-my_sns/media/
+**/media/
 
 .pytest_cache/
 db.sqlite3

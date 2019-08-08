@@ -65,3 +65,7 @@ p {
 .list-group-item {
     text-align: left;
 }
+
+.carousel-indicators li {
+    background-color: #6e6e6e !important;
+}
