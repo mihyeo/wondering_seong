@@ -15,19 +15,13 @@
 {% endblock css %}
 
 {% block content %}
-
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-    <ol class="carousel-indicators">
-      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
     
   {% if post.kinds == 1 %}
       {% if post.image %}    
       <img src="{{ post.image.url }}" class="d-block w-100" alt="...">
       {% endif %}
   {% elif post.kinds == 0 %}
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           {% for card_image in post.card_images %}
@@ -52,6 +46,7 @@
           {% endfor %}
         </div>
       </div>
+    </div>
   {% endif %}
 
 <div class="container" id="post-container">
