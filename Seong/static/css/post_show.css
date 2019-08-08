@@ -69,3 +69,7 @@ p {
 .carousel-indicators li {
     background-color: #6e6e6e !important;
 }
+
+.likes-count {
+    font-size: 15px;
+}
