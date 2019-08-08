@@ -49,7 +49,7 @@ def create_question(request):
         title=title,
         content=content
     )
-    return redirect('question_list')
+    return redirect('/boards?is_question=true')
 
 
 @require_POST
