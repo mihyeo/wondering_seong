@@ -284,5 +284,5 @@ my_sns/media/
 
 .pytest_cache/
 db.sqlite3
-
-
+**/migrations/
+**/**/migrations
