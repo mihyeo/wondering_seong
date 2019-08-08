@@ -11,3 +11,6 @@
     padding-bottom:3px;
 }
 
+.not-first {
+    display: none;
+}

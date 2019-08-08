@@ -6,7 +6,7 @@ p {
 
 .d-block{
     width : 100%;
-    height: 1000px;
+    /* height: 1000px; */
 }
 
 #post-container {
@@ -52,4 +52,16 @@ p {
 
 #like-icon {
     color: red;
+}
+
+.wonder {
+    color: #bf2b76;
+}
+
+.right {
+    float: right;
+}
+
+.list-group-item {
+    text-align: left;
 }

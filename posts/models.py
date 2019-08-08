@@ -84,8 +84,8 @@ class Like(TimeStampedModel):
     post = models.ForeignKey(Post, verbose_name=_('게시글'), on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name = '좋아요'
-        verbose_name_plural = '좋아요'
+        verbose_name = '게시글 좋아요'
+        verbose_name_plural = '게시글 좋아요'
         unique_together = (
             ('user', 'post')
         )
