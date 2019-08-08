@@ -1,23 +1,31 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Board, Question, Answer
 import pdb
+from django.db.models import Count
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 
 
 def board_list(request):
+    # default_view_count = board.view_count
+    # board.view_count = default_veiw_count + 1
+    # board.save()
     context = {
         'boards': Board.objects.all()
     }
     return render(request, 'boards/board_list.html', context)
 
 
+
+
+
 def board_show(request, id):
     board = get_object_or_404(Board, pk=id)
-    context = {
-        'board': board
-    }
-    return render(request, 'boards/board_show.html', context)
+    default_view_count = board.view_count
+    board.view_count = default_view_count + 1
+    board.save()
+   
+    return render(request, 'boards/board_show.html', {'board':board})
 
 
 def question_list(request):
@@ -29,6 +37,9 @@ def question_list(request):
     
 def question_show(request, id):
     question = get_object_or_404(Question, pk=id)
+    default_view_count = question.view_count
+    question.view_count = default_view_count + 1
+    question.save()
     try:
         answer = question.answer
     except:

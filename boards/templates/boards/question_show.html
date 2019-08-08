@@ -8,39 +8,57 @@
 <link rel="stylesheet" href="{% static 'css/board_show.css' %}">
 {% endblock css %}
 
+
 {% block content %}
 <div class="container" id="board-container">
     
     <div id="question-card" class="card">
         <div class="card-body">
-            <h5>
-                {{ question }}?
-            </h5>
-            <a href="#">
-                <h6 style="text-align:right">{{ question.user }}</h6>
-            </a>
-            <p style="margin-left:40px">
+                <table style=" width:100%;  margin: auto; ">
+                        <tr>
+
+                        <td style="text-align: left"> {{ question }}? </td>
+                        <td style="text-align: right">작성자 : {{ question.user }}</td>
+        
+                        </tr>
+                        </table>
+                    
+            <h6 style="font-size: 12px; color: #8f8f8f">
+                조회수 : {{ question.view_count }}
+            </h6>
+
+            <hr class = "one">
+
+            <p style="color:#666666">
                 {{ question.content }}
             </p>
         </div>
     </div>
+
     {% if answer %}
+
     <div id="answer-card" class="card">
         <div class="card-body">
-            <h5 style="text-align:left">
-                {{ answer }}
-            </h5>
-            <span href="#">
-                <h6>관리자</h6>
-            </span>
-            <p style = "text-align:left; margin-left:40px;" >
-                {{ answer.content }}
-            </p>
+            <table style=" width:100%;  margin: auto; ">
+                    <tr>
+                        <td style="text-align: left"> {{ answer }} </td>
+                        <td style="text-align: right"> 관리자 </td>
+                    </tr>
+            </table>
+               
+            <hr class = "one">
+        
+            <p style="color:#666666; text-align: left">
+                    {{ answer.content }}
+             </p>
+
         </div>
        
     </div>
+
     <br><br>
-    <P style="text-align: center"><a href="{% url 'question_list' %}" class="btn btn-outline-primary" id='back-button'>목록보기</a></p>
+
+    <P style="text-align: center"><a href="{% url 'question_list' %}" class="btn btn-outline" id='back-button'>목록보기</a></p>
     {% endif %}
 </div>
 {% endblock content %}

@@ -1,11 +1,11 @@
 {% for post in posts %}
-<a href="#" class = "card_news">
+<a href="{% url 'show' post.pk %}"  class = "card_news">
 <div class = "newscard_container">
     {% if post.image %}
         <img src="{{ post.image.url }}" class="card-img-top" alt="" width="150">
     {% endif %}
-    <p class = "title">{{ post.title }}</p>
-    <p class = "content">{{ post.content }}</p>
+    <p class = "title" style="text-align: left">{{ post.title }}</p>
+    <p class = "cotnten">{{ post.content }}</p>
 </a>
 </div>
 
