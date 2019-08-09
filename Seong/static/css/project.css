@@ -5,7 +5,9 @@
     
 }
 
-
+.pre-line {
+    white-space: pre-line;
+}
 
 
 #board-tab{
