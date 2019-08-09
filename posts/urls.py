@@ -1,10 +1,8 @@
 from django.urls import path
-from .views import before_sex, sex_ing, after_sex, news, show, like_toggle, create_comment, delete_comment
+from .views import sex, news, show, like_toggle, create_comment, delete_comment
 
 urlpatterns = [
-    path('before_sex/', before_sex, name="before_sex"),
-    path('sex_ing/', sex_ing, name="sex_ing"),
-    path('after_sex/', after_sex, name="after_sex"),
+    path('sex/', sex, name="sex"),
     path('news/', news, name="news"),
     path('show/<int:id>/', show, name="show"),
     path('like_toggle/<int:post_id>/', like_toggle, name="like_toggle"),

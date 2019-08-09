@@ -11,14 +11,154 @@
 {% block content %}
     {% include 'posts/_posts_header.html' %}
 
-    {% include 'boards/_board_tab.html' %}
-
-    <div class="list-group">
-        {% for board in boards %}
-        
-            <a href="{% url 'board_show' board.pk %}" class="list-group-item list-group-item-action">{{ board }}</a>
-        {% endfor %}
-        
+    <div class="onclick-group">
+        <a href="#" class="button active" data-name="#board-list">
+            공지사항
+        </a>
+        <a href="#" class="button" id="qna-button" data-name="#question-contents">
+            Q&A
+        </a>
     </div>
+
+    <div class="list-group tab-contents" id="board-list">
+        {% for board in boards %}
+            <a href="{% url 'board_show' board.pk %}" class="list-group-item list-group-item-action">
+                {{ forloop.counter }}. {{ board.title }}
+            </a>
+        {% endfor %}
+    </div>
+
+    <div class="tab-contents" id="question-contents">
+        <button type="button" class="btn btn-primary bmd-btn-fab" data-toggle="modal" data-target="#exampleModal">
+            <i class="icon ion-md-create round-icon"></i>
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">질문하기</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <form action="{% url 'create_question' %}" method="POST">
+                    {% csrf_token %}
+                    <div class="modal-body">
+                        <label for="title">제목</label><br>
+                        <input type="text" name="title" required="true" style="width: 100%;"><br><br>
+                        <hr>
+        
+                        <label for="contetn">내용</label><br>
+                        <textarea name="content" rows="10" style="width: 100%;"></textarea><br>
+                        <hr>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">닫기</button>
+                        <button type="submit" class="btn btn-primary">궁금했성!</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    
+        <div class="list-group">
+            {% for question in questions %}
+                <a href="{% url 'question_show' question.pk %}" class="list-group-item list-group-item-action">
+                    <div class="flex">
+                        <div class="question-title">
+                            {{ forloop.counter }}. {{ question.title }}
+                        </div>
+                        <div class="like-button">
+                            <i id="like-icon-{{ question.pk }}" class="icon ion-ios-heart like-icon" data-pk="{{ question.pk }}"></i>
+                            <span class="likes-count" id="likes-count-{{ question.pk }}">{{ question.likes_count }}</span>
+                        </div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <style>
+        .likes-count {
+            color: black;
+            font-size: 15px;
+        }
+
+        .like-icon {
+            color: red;
+        }
+
+        .like-button {
+            float: right;
+        }
+
+        .flex {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        a.button {
+        display:inline-block;
+        width:30%;
+        height:30px;
+        background-color: #ffffff;
+        color:#000000;
+        text-align:center;
+        text-decoration: none;
+        }
+    
+        a.active {
+        background-color: #ffffff;
+        border-bottom: 2px solid #bf2b76;
+        color: #bf2b76;
+        font-weight: 700;
+        
+        }
+        
+        div.active { 
+            display:block;
+        }
+        .onclick-group {
+            width:100%;
+            background-color: #ffffff;
+            text-align:center;
+        }
+        .modal-dialog {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        }
+        
+        .modal-content {
+        height: auto;
+        min-height: 100%;
+        border-radius: 0;
+        }
+
+        #question-contents {
+            display: none;
+        }
+    </style>
 {% endblock content %}
+
+{% block js %}
+<script>
+      $('.button').on('click', function(){
+        $('.button').removeClass('active');
+        $(this).addClass('active');
+        var tabId = $(this).data('name');
+        $('.tab-contents').hide();
+        $(tabId).show();
+    });
+</script>
+{% if is_question == "true" %}
+<script>
+    $('#qna-button').trigger('click');
+</script>
+{% endif %}
+{% endblock js %}
+    
 

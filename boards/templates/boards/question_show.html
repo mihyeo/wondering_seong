@@ -11,23 +11,30 @@
 
 {% block content %}
 <div class="container" id="board-container">
-    
+    <a href="/boards?is_question=true" class="btn btn-outline-primary" id='back-button'>뒤로가기</a>    
+
     <div id="question-card" class="card">
         <div class="card-body">
                 <table style=" width:100%;  margin: auto; ">
-                        <tr>
-
+                    <tr>
                         <td style="text-align: left"> {{ question }}? </td>
                         <td style="text-align: right">작성자 : {{ question.user }}</td>
-        
-                        </tr>
-                        </table>
-                    
+                    </tr>
+                </table>
+            
             <h6 style="font-size: 12px; color: #8f8f8f">
                 조회수 : {{ question.view_count }}
             </h6>
+            <div class="like-button">
+                {% if request.user in question.question_like_users.all %}
+                    <i id="like-icon-{{ question.pk }}" class="icon ion-ios-heart like-icon" data-pk="{{ question.pk }}"></i>
+                {% else %}
+                    <i id="like-icon-{{ question.pk }}" class="icon ion-ios-heart-empty like-icon" data-pk="{{ question.pk }}"></i>
+                {% endif %}
+                <span class="likes-count" id="likes-count-{{ question.pk }}">{{ question.likes_count }}</span>
+            </div>
 
-            <hr class = "one">
+            <hr class = "one" style="margin-top: 50px;">
 
             <p style="color:#666666">
                 {{ question.content }}
@@ -61,5 +68,60 @@
     <P style="text-align: center"><a href="{% url 'question_list' %}" class="btn btn-outline" id='back-button'>목록보기</a></p>
     {% endif %}
 </div>
+
+<style>
+    .likes-count {
+        color: black;
+        font-size: 15px;
+    }
+
+    .like-icon {
+        color: red;
+    }
+
+    .like-button {
+        float: right;
+    }
+
+    .flex {
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
 {% endblock content %}
+
+{% block js %}
+<script>
+    $(".like-icon").click(function(){
+        var pk = $(this).data('pk');
+        $.ajax({
+        type: "POST",
+        url: "{% url 'question_like_toggle' question.pk %}",
+        data: {'pk': pk, 'csrfmiddlewaretoken': '{{ csrf_token }}'},
+        dataType: "json",
+        success: function(response){
+            if (response.result == undefined) {
+                alert("로그인이 필요합니다.");
+                window.location.replace("/accounts/login/");
+            }
+            else {
+                if (response.result == "like") {
+                    $('#like-icon-' + pk).removeClass();
+                    $('#like-icon-' + pk).addClass('icon ion-ios-heart like-icon');
+                }
+                else {
+                    $('#like-icon-' + pk).removeClass();
+                    $('#like-icon-' + pk).addClass('icon ion-ios-heart-empty like-icon');
+                }
+                $('#likes-count-' + pk).html(response.likes_count);
+            }
+        },
+        error: function(request, status, error){
+            alert("로그인이 필요합니다.");
+            window.location.replace("/accounts/login/");
+        },
+        });
+    });
+</script>
+{% endblock js %}
     
