@@ -49,15 +49,18 @@
     </div>
   {% endif %}
 
+
 <div class="container" id="post-container">
   <div class="row">
+    
+    <tr>
     <div class="col-7">
         <h5 id="post-title"><b>{{ post.title }}</b></h5>
     </div>
     
     <div class="col-5">
         <a href="#" class="black">
-          <span style="text-align: right; margin-left:48%">
+          <span style="text-align: right; margin-left:10%">
               <img src="{% static 'image/logo.png' %}" width="30" height="30" alt="...">
             {{ post.user }}
           </span>

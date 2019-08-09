@@ -1,0 +1,44 @@
+{% load staticfiles %}
+
+<div id = "header">
+    <div id = "logo"><a href="#"><img src="/static/image/logo.png" width="45" height="45"></a></div>
+
+        <div class="search">
+           <input type="text" class="searchTerm" placeholder="검색어를 입력해주세요.">
+           <button id = "search_button" type="submit" class="searchButton">
+             <img src = "/static/image/search_icon.png" width="30" height="30">
+           </button>
+        </div>
+    <div id = "mypage_icon"><a href="#"><img src="/static/image/user_icon.png" width="35" height="35"></a></div>
+</div>
+
+<photo-slider>
+    <img data-src="https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?q=50">
+    <img data-src="https://images.unsplash.com/photo-1478502083033-10df98099a02?q=50">
+    <img data-src="https://images.unsplash.com/photo-1484176965643-8c96fe129095?q=50">
+    <img data-src="https://images.unsplash.com/photo-1478502161016-a691575b097b?q=50">
+    <img data-src="https://images.unsplash.com/photo-1477346433521-912858ffd498?q=50">
+  </photo-slider>
+  
+ <!--<photo-slider>
+    <img data-src="https://images.unsplash.com/photo-1473959067058-7bbf6c0570a1?w=1350&q=50">
+    <img data-src="https://images.unsplash.com/photo-1473723562877-e605ffa84467?w=1350&q=50">
+    <img data-src="https://images.unsplash.com/photo-1482192596544-9eb780fc7f66?w=1350&q=50">
+    <img data-src="https://images.unsplash.com/photo-1478502083033-10df98099a02?w=1350&q=50">
+    <img data-src="https://images.unsplash.com/photo-1484176965643-8c96fe129095?w=1350&q=50">
+    <img data-src="https://images.unsplash.com/photo-1478502161016-a691575b097b?w=1350&q=50">
+    <img data-src="https://images.unsplash.com/photo-1477346433521-912858ffd498?w=1350&q=50">
+  </photo-slider>-->
+
+
+
+<div id ="nav">
+    <div id = "one"><a href="{% url 'basic' %}">
+        <img src="/static/image/basic.JPG" width="60" height="60"></a></div>
+    <div id = "two"><a href="{% url 'sex' %}">
+        <img src="/static/image/sex.JPG" width="60" height="60"></a></div>
+    <div id = "three"><a href="{% url 'news' %}">
+            <img src="/static/image/news.JPG" width="60" height="60"></a></div>
+    <div id = "four"><a href="#">
+        <img src="/static/image/Pboard.JPG" width="60" height="60"></a></div>
+</div>
