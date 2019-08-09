@@ -39,3 +39,7 @@ a{
     background-color: #bf2b76;
     border-color: #bf2b76;
 }
+
+a:hover {
+    text-decoration: blink;
+}
