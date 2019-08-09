@@ -15,7 +15,8 @@ p {
 
 #post-title {
     margin-top: 7px;
-    white-space: nowrap;
+    width:100%;
+    overflow:auto;
 }
 
 #small-infos {
