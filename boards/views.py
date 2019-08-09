@@ -2,6 +2,7 @@ import json
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Board, Question, Answer, QuestionLike
 import pdb
+from django.db.models import Count
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_POST
 from django.http import HttpResponse
@@ -19,14 +20,18 @@ def board_list(request):
 
 def board_show(request, id):
     board = get_object_or_404(Board, pk=id)
-    context = {
-        'board': board
-    }
-    return render(request, 'boards/board_show.html', context)
+    default_view_count = board.view_count
+    board.view_count = default_view_count + 1
+    board.save()
+   
+    return render(request, 'boards/board_show.html', {'board':board})
 
     
 def question_show(request, id):
     question = get_object_or_404(Question, pk=id)
+    default_view_count = question.view_count
+    question.view_count = default_view_count + 1
+    question.save()
     try:
         answer = question.answer
     except:
@@ -49,6 +54,7 @@ def create_question(request):
         title=title,
         content=content
     )
+
     return redirect('/boards?is_question=true')
 
 

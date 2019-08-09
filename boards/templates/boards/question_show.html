@@ -8,46 +8,64 @@
 <link rel="stylesheet" href="{% static 'css/board_show.css' %}">
 {% endblock css %}
 
+
 {% block content %}
 <div class="container" id="board-container">
-    <a href="/boards?is_question=true" class="btn btn-outline-primary" id='back-button'>뒤로가기</a>
+    <a href="/boards?is_question=true" class="btn btn-outline-primary" id='back-button'>뒤로가기</a>    
+
     <div id="question-card" class="card">
         <div class="card-body">
-            <div class="flex">
-                <h5>
-                    {{ question }}?
-                </h5>
-                <div class="like-button">
-                    {% if request.user in question.question_like_users.all %}
-                        <i id="like-icon-{{ question.pk }}" class="icon ion-ios-heart like-icon" data-pk="{{ question.pk }}"></i>
-                    {% else %}
-                        <i id="like-icon-{{ question.pk }}" class="icon ion-ios-heart-empty like-icon" data-pk="{{ question.pk }}"></i>
-                    {% endif %}
-                    <span class="likes-count" id="likes-count-{{ question.pk }}">{{ question.likes_count }}</span>
-                </div>
+                <table style=" width:100%;  margin: auto; ">
+                    <tr>
+                        <td style="text-align: left"> {{ question }}? </td>
+                        <td style="text-align: right">작성자 : {{ question.user }}</td>
+                    </tr>
+                </table>
+            
+            <h6 style="font-size: 12px; color: #8f8f8f">
+                조회수 : {{ question.view_count }}
+            </h6>
+            <div class="like-button">
+                {% if request.user in question.question_like_users.all %}
+                    <i id="like-icon-{{ question.pk }}" class="icon ion-ios-heart like-icon" data-pk="{{ question.pk }}"></i>
+                {% else %}
+                    <i id="like-icon-{{ question.pk }}" class="icon ion-ios-heart-empty like-icon" data-pk="{{ question.pk }}"></i>
+                {% endif %}
+                <span class="likes-count" id="likes-count-{{ question.pk }}">{{ question.likes_count }}</span>
             </div>
-            <a href="#">
-                <h6>{{ question.user }}</h6>
-            </a>
-            <p>
+
+            <hr class = "one" style="margin-top: 50px;">
+
+            <p style="color:#666666">
                 {{ question.content }}
             </p>
         </div>
     </div>
+
     {% if answer %}
+
     <div id="answer-card" class="card">
         <div class="card-body">
-            <h5>
-                {{ answer }}
-            </h5>
-            <span href="#">
-                <h6>관리자</h6>
-            </span>
-            <p>
-                {{ answer.content }}
-            </p>
+            <table style=" width:100%;  margin: auto; ">
+                    <tr>
+                        <td style="text-align: left"> {{ answer }} </td>
+                        <td style="text-align: right"> 관리자 </td>
+                    </tr>
+            </table>
+               
+            <hr class = "one">
+        
+            <p style="color:#666666; text-align: left">
+                    {{ answer.content }}
+             </p>
+
         </div>
+       
     </div>
+
+    <br><br>
+
+    <P style="text-align: center"><a href="{% url 'question_list' %}" class="btn btn-outline" id='back-button'>목록보기</a></p>
     {% endif %}
 </div>
 

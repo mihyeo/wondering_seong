@@ -1,6 +1,9 @@
 
+@font-face { font-family: 'netmarbleM'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.1/netmarbleM.woff') format('woff'); font-weight: normal; font-style: normal; }
 body{
     background-color:#f2f2f5;
+    font-family:'netmarbleM';
+    
 }
 
 input:-ms-imput-placeholder {color:#a8a8a8;}
@@ -127,8 +130,14 @@ button{
 }
 
 #search-icon-img {
-    width: 35px;
-    height: 35px;
+    width: 40px;
+    height: 40px;
+    margin-left:5px;
+}
+
+#logo-icon-img {
+    width: 50px;
+    height: 40px;
     margin-left:5px;
 }
 

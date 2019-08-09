@@ -16,8 +16,9 @@
 
 .table {
     border-collapse: collapse;
-    text-align: center;
+    text-align: left;
     line-height: 1.5;
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
+    height:500px;
+    margin:5px;
     }
+

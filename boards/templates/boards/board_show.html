@@ -17,16 +17,21 @@
     <table class="table">
             <thead>
             <tr>
-                <th style="background-color: rgba(255, 255, 255, 0.726)">{{ board.title }}</th>
+
+                <th style="background-color: rgba(255, 255, 255, 0.726); font-size: 20px">{{ board.title }}
+                     <br> <p style="font-size:12px; color:#8f8f8f;"> 조회수: {{ board.view_count }} </p> </th>
+
             </tr>
             </thead>
+            
             <tbody>
             <tr>
-                <th style="background-color: rgba(255, 255, 255, 0.918)">{{ board.content }}</th>
+                <th style="background-color: rgba(255, 255, 255, 0.918); color : #666666 ">{{ board.content }} </th>
             </tr>
             </tbody>
         </table>
-    <P style="text-align: center"><a href="{% url 'board_list' %}" class="btn btn-outline-primary" id="back-button" style="position: center;">뒤로가기</a></P>
+    <P style="text-align: center"><a href="{% url 'board_list' %}" class="btn btn-outline" id="back-button" style="position: center;">목록보기</a></P>
 </div>
+
 {% endblock content %}
 
